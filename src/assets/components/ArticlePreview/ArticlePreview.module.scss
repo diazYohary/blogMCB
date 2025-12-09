@@ -1,0 +1,20 @@
+.mcb_article_preview{
+    text-decoration: none;
+    transition: var(--transition);
+    h2{
+        transition: var(--transition);
+    }
+}
+.mcb_img_preview{
+    width: 300px;
+    height: 150px;
+    border-radius: var(--radius);
+}
+
+.mcb_article_preview:hover{
+    scale: 1.01;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    h2{
+        color: var(--cta-color-0);
+    }
+}

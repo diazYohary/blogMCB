@@ -1,7 +1,8 @@
+import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
 const Home=()=>{
     return(
         <>
-        Home
+        <RecommendedArticles/>
         </>
     )
 }

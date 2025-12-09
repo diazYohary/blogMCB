@@ -8,8 +8,11 @@ $footer-bg: #5c5c5b;
 
 .mcb_footer_grid{
     display: grid;
-    grid-template-columns: 1fr min-content min-content min-content;
+    grid-template-columns: 1fr auto auto auto auto;
     gap: 40px;
+}
+.mcb_main_info{
+    width: 300px;
 }
 .mcb_footer a{
     text-decoration: none;
@@ -23,11 +26,27 @@ $footer-bg: #5c5c5b;
 .mcb_logo{
     height: 100px;
 }
+.mcb_socialmedia{
+    width: 34px;
+    height: 34px;
+    transition: var(--transition);
+}
+.mcb_socialmedia:hover{
+    filter: brightness(90%);
+}
+.mcb_mobilestore{
+    width: 150px;
+    height: 40px;
+}
 
-@media (max-width: 950px) {
+.mcb_legal{
+    font-size: 0.875rem;
+}
+@media (max-width: 1201px) {
     .mcb_footer_grid {
-        grid-template-columns: min-content min-content min-content;
+        grid-template-columns: auto auto auto;
         .mcb_main_info {
+            width: auto;
             grid-column: 1 / 4; 
             grid-row: 1;
         }
@@ -35,10 +54,20 @@ $footer-bg: #5c5c5b;
 }
 
 @media screen and (max-width: 600px) {
+    .mcb_footer{
+        padding: 40px 20px;
+    }
     .mcb_footer_grid{
         grid-template-columns: repeat(1, 1fr);
         .mcb_main_info{
             grid-column: 1;
         }
+    }
+    .mcb_logo{
+        height: 80px;
+    }
+    .mcb_legal{
+        font-size: 1rem;
+        flex-direction: column;
     }
 }

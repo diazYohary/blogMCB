@@ -3,5 +3,5 @@ import Article from "./pages/Article/Article"
 
 export const routes=[
     { path:'/', Component: <Home/>},
-    { path:'/article', Component: <Article/>},
+    { path:'/article/:articleSlug', Component: <Article/>},
 ]

@@ -27,6 +27,7 @@
     --radius: 10px;
     --radius-btn:20px;
     --transition: all .15s ease-in-out;
+    --body-pd: 30px
 }
 html,
 body,
@@ -121,9 +122,6 @@ h1, h2, h3, h4, h5, h6{
 body{
     background-color: #eef3f8;
 }
-main{
-    padding: 30px;
-}
 hr{
     width: 100%;
     height:1px;
@@ -137,6 +135,16 @@ a{
 }
 a:hover{
     color: var(--cta-color-1);
+}
+
+.mcb-white-link{
+    color: #fff;
+    text-decoration: none;
+}
+
+.mcb-white-link:hover{
+    color: #fff;
+    text-decoration: underline;
 }
 /* ! FLEX */
 .mcb-flex{
@@ -193,6 +201,9 @@ a:hover{
 .mcb-w-10{
     width: 50%;
 }
+.mcb-w-fc{
+    width: fit-content;
+}
 .mcb-h-10vh{
     height: 100vh;
 }
@@ -228,17 +239,31 @@ a:hover{
     font-weight: 600;
 }
 
-.mcb-card{
+// ! CARDS
+// ! BUTTONS
+@mixin base-card{
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border-radius: var(--radius);
     border: solid 1px #cfcfcf;
     transition: var(--transition);
+}
+
+.mcb-card{
+    @include base-card;
+    border-radius: var(--radius);
+    gap: 20px;
+    padding: 20px;
     flex-grow: 1;
 }
+
+.mcb-minicard{ 
+    @include base-card;
+    border-radius: 20px ;
+    gap: 10px;
+    padding: 20px;
+}
+
 .mcb-field{
     display: flex;
     flex-direction: column;
@@ -275,7 +300,6 @@ a:hover{
     width: fit-content;
     height: fit-content;
     transition: var(--transition);
-
 }
 .mcb-cta-btn{
     @include base-btn;
