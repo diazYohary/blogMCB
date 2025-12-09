@@ -1,0 +1,44 @@
+$footer-bg: #5c5c5b;
+
+.mcb_footer{
+    background-color: $footer-bg;
+    color: #fff !important;
+    padding: 30px 60px;
+}
+
+.mcb_footer_grid{
+    display: grid;
+    grid-template-columns: 1fr min-content min-content min-content;
+    gap: 40px;
+}
+.mcb_footer a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.mcb_footer a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.mcb_logo{
+    height: 100px;
+}
+
+@media (max-width: 950px) {
+    .mcb_footer_grid {
+        grid-template-columns: min-content min-content min-content;
+        .mcb_main_info {
+            grid-column: 1 / 4; 
+            grid-row: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mcb_footer_grid{
+        grid-template-columns: repeat(1, 1fr);
+        .mcb_main_info{
+            grid-column: 1;
+        }
+    }
+}

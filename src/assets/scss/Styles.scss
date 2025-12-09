@@ -1,0 +1,44 @@
+@import "./global";
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gojali";
+    src: url("../fonts/Gojali-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gojali";
+    src: url("../fonts/Gojali-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gojali";
+    src: url("../fonts/Gojali-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root{
+    font-family: "Plus Jakarta Sans", Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: "Gojali", Arial, Helvetica, sans-serif;
+}
