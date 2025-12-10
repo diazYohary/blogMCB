@@ -6,7 +6,7 @@ const ArticlePreview=({
     title='Default title',
     date='dd/mm/yyyy',
     imgSrc=defaultImage,
-    url='article/sample'
+    url='/article/sample'
 })=>{
     return(
         <Link to={url} className={`mcb-minicard ${styles.mcb_article_preview}`}>

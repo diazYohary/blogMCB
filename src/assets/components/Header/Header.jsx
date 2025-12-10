@@ -1,9 +1,9 @@
 import styles from './Header.module.scss';
-
+import logo from '../../img/MCBlogo.svg'
 const Header=()=>{
     return(
-        <header className={styles.mcb_header}>
-            BLOG MCB
+        <header className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_header}`}>
+            <img src={logo} alt="MCBrokers" />
         </header>
     )
 }

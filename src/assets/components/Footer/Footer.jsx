@@ -4,11 +4,18 @@ import { Link } from 'react-router-dom';
 import { FooterLinks, socialMedia, mobileStores } from './FooterLinks';
 
 const Footer=()=>{
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0, 
+            behavior: 'smooth' 
+        });
+    };
     return(
         <footer className={`${styles.mcb_footer} mcb-flex-c mcb-gap-20`}>
             <div className={styles.mcb_footer_grid}>
                 <div className={`${styles.mcb_main_info} mcb-flex-c mcb-ai-fs mcb-gap-20`}>
-                    <Link to='/'>
+                    <Link to='/' onClick={scrollToTop}>
                     <img src={mcbLogo} className={styles.mcb_logo} alt="MCBrokers" />
                     </Link>
                     <h3 className='mcb-color-w mcb-fs-24 mcb-fw-5'>Contáctanos</h3>

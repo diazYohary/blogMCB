@@ -2,6 +2,7 @@ import { useState, useParams } from "react";
 import Title from "./Title/Title";
 import Body from "./Body/Body";
 import Author from "./Author/Author";
+import MoreArticles from "./MoreArticles/MoreArticles";
 
 const Article=()=>{
     // const { articleId } = useParams();
@@ -18,6 +19,7 @@ const Article=()=>{
         <Title/>
         <Body/>
         <Author/>
+        <MoreArticles/>
         </>
     )
 }

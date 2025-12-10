@@ -1,0 +1,34 @@
+.mcb-generic-cont{
+    width: 1500px;
+}
+
+@media screen and (max-width: 1600px) {
+    .mcb-generic-cont{
+        width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .mcb-generic-cont{
+        width: 800px;
+    }
+}
+@media screen and (max-width: 950px) {
+    .mcb-generic-cont{
+        width: 360px;
+    }
+    .mcb_mqm_column{
+        flex-direction: column;
+    }
+    .mq_hide{
+        display: none;
+    }
+}
+@media screen and (max-width: 500px) {
+    .mcb-generic-cont{
+        width: 100%;
+    }
+    .mqm-txt-c{
+        text-align: center;
+    }
+}

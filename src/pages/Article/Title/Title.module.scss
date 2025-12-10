@@ -4,13 +4,14 @@
     h1, h2{
         color: #fff;
     }
-    h1{ font-size: 4rem;}
-    h2{
-        font-size: 2rem;
-        font-weight: 500;
-    }
 }
-
+.mcb_title{
+    font-size: 4rem;
+}
+.mcb_subtitle{
+    font-weight: 500;
+    font-size: 2.5rem;
+}
 $img_space: 600px;
 
 .mcb_title_grid{
@@ -26,7 +27,7 @@ $img_space: 600px;
     }
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1150px) {
     $img_space: 400px;
     .mcb_title_grid{
         grid-template-columns: $img_space 1fr;
@@ -48,9 +49,16 @@ $img_space: 600px;
             border-radius: 20px;
         }
     }
+
+    .mcb_title{
+        font-size: 3rem;
+    }
+    .mcb_subtitle{
+        font-size: 2rem;
+    }
 }
 @media screen and (max-width: 700px){
-    $img_space: 400px;
+    $img_space: 500px;
     .mcb_title_grid{
         grid-template-columns: $img_space ;
         padding: 20px 20px 40px 20px;
@@ -59,16 +67,20 @@ $img_space: 600px;
         }
     }
 }
-@media screen and (max-width: 500px){
-    .mcb_article_title{
-        h1{ font-size: 2.5rem;}
-        h2{ font-size: 1.25rem;}
-    }
-    $img_space: 300px;
+
+@media screen and (max-width: 450px){
+    $img_space: 100%;
     .mcb_title_grid{
+        padding: 20px;
         grid-template-columns: $img_space ;
         img{
             width: $img_space;
         }
+    }
+    .mcb_title{
+        font-size: 2rem;
+    }
+    .mcb_subtitle{
+        font-size: 1.5rem;
     }
 }

@@ -17,8 +17,8 @@ const Title=()=>{
             <div className={styles.mcb_title_grid}>
                 <img src={defaultImg} alt="" />
                 <div>
-                    <h1>Default title</h1>
-                    <h2>Default subtitle</h2>
+                    <h1 className={styles.mcb_title}>Default title</h1>
+                    <h2 className={styles.mcb_subtitle}>Default subtitle</h2>
                     <p>Escrito por: <b>Author name</b></p>
                     <p>Publicado el: dd/mm/yyyy</p>
                 </div>
