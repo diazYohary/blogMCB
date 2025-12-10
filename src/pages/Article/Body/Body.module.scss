@@ -1,0 +1,11 @@
+.mcb_article_body{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    padding: 30px;
+}
+@media screen and (max-width: 900px){
+    .mcb_article_body{
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+}

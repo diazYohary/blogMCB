@@ -1,5 +1,8 @@
 import { useState, useParams } from "react";
 import Title from "./Title/Title";
+import Body from "./Body/Body";
+import Author from "./Author/Author";
+
 const Article=()=>{
     // const { articleId } = useParams();
     const [articleData, setArticleData] = useState(null);
@@ -13,7 +16,8 @@ const Article=()=>{
     return(
         <>
         <Title/>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi recusandae expedita ipsam culpa tenetur neque repellat illo quasi est? Tempore corporis rem repudiandae facere deserunt aut adipisci, facilis cupiditate suscipit!</p>
+        <Body/>
+        <Author/>
         </>
     )
 }

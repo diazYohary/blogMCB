@@ -120,6 +120,7 @@ h1, h2, h3, h4, h5, h6{
     color: var(--color-primary);
 }
 body{
+    scrollbar-width: thin;
     background-color: #eef3f8;
 }
 hr{
@@ -207,7 +208,9 @@ a:hover{
 .mcb-h-10vh{
     height: 100vh;
 }
-
+.mcb-h-fc{
+    height: fit-content;
+}
 /* ! TEXT ALIGN */
 .mcb-txt-c{
     text-align: center;

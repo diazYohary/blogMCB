@@ -44,7 +44,7 @@ $footer-bg: #5c5c5b;
 }
 @media (max-width: 1201px) {
     .mcb_footer_grid {
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 150px 150px 150px;
         .mcb_main_info {
             width: auto;
             grid-column: 1 / 4; 

@@ -1,0 +1,33 @@
+.mcb_article_author{
+    background-color: #d9e3ef;
+    padding: 30px;
+}
+
+$img_size: 250px;
+
+.mcb_author_img{
+    border-radius: 50%;
+    width: $img_size;
+    height: $img_size;
+}
+.mcb_author_data{
+    width: 800px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .mcb_author_data{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    $img_size: 150px;
+    .mcb_author_img{
+        width: $img_size;
+        height: $img_size;
+    }
+    .mcb_author_data{
+        width: 300px;
+    }
+}
