@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './CardCarousel.module.scss'
 
-const CardCarousel = () => {
+const CardCarousel = ({data}) => {
     const currentBreakpoint = useBreakpoint();
     
     const getSettingsByBreakpoint = (breakpoint) => {
@@ -63,15 +63,10 @@ const CardCarousel = () => {
         <div className={`mcb-flex mcb-jc-c ${styles.mcb_cardCarousel_cont}`}>
             <div className={styles.mcb_cardCarousel}>
                 <Slider key={sliderKey} {...currentSettings} className={styles.mcb_carousel_controls}>
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
-                    <ArticlePreview />
+                    {data.map((article) => (
+                        <ArticlePreview key={article.id} title={article.titulo} date={article.publishedAt} imgSrc={article.portada.url} url={article.slug} />
+                    ))}
+                    {/* <ArticlePreview/> */}
                 </Slider>
             </div>
         </div>

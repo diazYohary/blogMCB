@@ -1,12 +1,21 @@
 import styles from './Title.module.scss'
 import Breadcrumbs from '../../../assets/components/Breadcrumbs/Breadcrumbs';
 import defaultImg from '../../../assets/img/Articles/sampleArticlePreview.png';
+import { formatDate } from '../../../utils/api-helpers';
 
-const Title=()=>{
+const Title=({
+    data:{
+        titulo:title,
+        // subtitulo:subtitle,
+        portada,
+        autor:{nombre:author},
+        publishedAt:publishDate,
+    }
+})=>{
     const crumbs=[
         {label:'Blog', url:'/'},
         {label:'Artículo',},
-        {label:'Artículo', url:'/'},
+        {label:title, url:'/'},
     ]
 
     return(
@@ -15,12 +24,12 @@ const Title=()=>{
                 <Breadcrumbs crumbs={crumbs}/>
             </div>
             <div className={styles.mcb_title_grid}>
-                <img src={defaultImg} alt="" />
+                <img src={portada?.url || defaultImg} alt="" />
                 <div>
-                    <h1 className={styles.mcb_title}>Default title</h1>
-                    <h2 className={styles.mcb_subtitle}>Default subtitle</h2>
-                    <p>Escrito por: <b>Author name</b></p>
-                    <p>Publicado el: dd/mm/yyyy</p>
+                    <h1 className={styles.mcb_title}>{title}</h1>
+                    {/* <h2 className={styles.mcb_subtitle}>{subtitle}</h2> */}
+                    <p>Escrito por: <b>{author}</b></p>
+                    <p>Publicado el: {formatDate(publishDate)}</p>
                 </div>
             </div>
         </div>
