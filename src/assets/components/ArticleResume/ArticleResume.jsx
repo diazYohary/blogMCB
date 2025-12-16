@@ -28,7 +28,7 @@ const ArticleResume=({
                         <div>
                             <h1>{title}</h1>
                             <p>{resume}</p>
-                            <Link to={`/article/${url}`} className='mcb-white-link'>Seguir leyendo...</Link>
+                            <Link to={`/article/${url}`} className='mcb-white-link'>Seguir leyendo <span>&#8594;</span> </Link>
                         </div>
                         <img src={portada} className={styles.mcb_resume_img} alt={title} />
                     </>

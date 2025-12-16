@@ -112,11 +112,12 @@
     color: var(--black-3);
 }
 @media screen and (max-width: 1600px) {
-    .mcb_home_nav_cont{
+    .mcb_header_cont, .mcb_home_nav_cont{
         width: 1200px;
     }
 }
 @media screen and (max-width: 1500px) {
+    
     .mcb_header_home{
         background-position-x: 0;
     }
@@ -129,6 +130,9 @@
     }
 }
 @media screen and (max-width: 1200px) {
+    .mcb_header_cont, .mcb_home_nav_cont{
+        width: 900px;
+    }
     .mcb_home_title{
         font-size: 1.5rem;
         right: 30px;
@@ -136,6 +140,9 @@
 }
 
 @media screen and (max-width: 1050px){
+    .mcb_header_cont, .mcb_home_nav_cont{
+        width: 600px;
+    }
     .mcb_header_home{
         height: 800px;
         width: 100%;
