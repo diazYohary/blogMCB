@@ -17,7 +17,7 @@ const Breadcrumbs=({crumbs})=>{
                         {isLast ? (
                             <span>{crumb.label}</span>
                         ) : (
-                            <Link to={crumb.url} className="mcb-white-link">{crumb.label}</Link>
+                            <Link to={crumb.url} className="mcb-w-link mcb-fs-14">{crumb.label}</Link>
                         )}
 
                         {!isLast && <BreadcrumbArrow/>}
