@@ -7,12 +7,20 @@
         transition: var(--transition);
     }
 }
+
+$cont_w:310px;
+
 .mcb_img_preview{
-    width: 310px;
+    width: $cont_w;
     height: 150px;
     border-radius: var(--radius);
 }
-
+.mcb_article_title{
+    max-width: $cont_w;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: "...";;
+}
 .mcb_article_preview:hover{
     h2{
         color: var(--cta-color-0);
