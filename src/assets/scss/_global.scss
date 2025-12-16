@@ -304,6 +304,10 @@ a:hover{
 
 
 // ! BUTTONS
+.mcb-no-btn{
+    all: unset;
+    cursor: pointer;
+}
 @mixin base-btn{
     cursor: pointer;
     border: none;

@@ -1,14 +1,72 @@
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import useIsMobileDevice from '../../../utils/isMobileDevice';
+
 import styles from './Header.module.scss';
 import logo from '../../img/MCBlogo.svg'
+import whiteLogo from '../../img/MCB_footer.svg'
+import menu from '../../img/Icons/mobileMenu.svg';
+import closeMenu from '../../img/Icons/closeMenu.svg';
+
+import { HeaderLinks } from './HeaderLinks';
 
 const Header=()=>{
     const location=useLocation();
-        return(
+    const isMobile=!useIsMobileDevice();
+    const [openMenu, setOpenMenu]=useState(false);
+
+    const handleMenu=()=>{
+        setOpenMenu(prev => !prev);
+    }
+
+    useEffect(() => {
+        if (openMenu) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [openMenu]);
+
+    return(
         <>
         {location.pathname === '/' ? (
             <header className={`${styles.mcb_header_home}`}>
-                aaaaaaaaa
+                <nav className={`mcb-flex mcb-jc-c ${styles.mcb_home_nav}`}>
+                    <div className={`mcb-flex mcb-ai-c mcb-gap-30 mcb-jc-sb ${styles.mcb_home_nav_cont}`}>
+                        <img src={whiteLogo} className={styles.mcb_home_logo} alt="MCBrokers" />
+                        {isMobile ? (
+                            <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                                {HeaderLinks.map((i, index)=>(
+                                    <Link key={index} to={i.url} className={styles.mcb_home_menu_link}>{i.title}</Link>
+                                ))}
+                            </div>
+                        ):(
+                            <div className='mcb-pos-r'>
+                                <img onClick={handleMenu} className={styles.mcb_menu_icon} src={menu} alt="Abrir menú" />
+                                <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
+                                    <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
+                                        <p className="mcb-fs-28 mcb-fw-5">Menú</p>
+                                        <button onClick={handleMenu} className='mcb-no-btn'>
+                                            <img src={closeMenu} alt="Cerrar menú" />
+                                        </button>
+                                    </div>
+
+                                    {HeaderLinks.map((i, index)=>(
+                                        <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </nav>
+                <div className={`${styles.mcb_home_title}`}>
+                    <h1>Bienvenido</h1>
+                    <h1>al Blog de MCBrokers</h1>
+                </div>
             </header>
         ):(
             <header className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_header}`}>
