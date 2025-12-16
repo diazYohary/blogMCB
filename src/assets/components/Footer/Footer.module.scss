@@ -42,9 +42,17 @@ $footer-bg: #5c5c5b;
 .mcb_legal{
     font-size: 0.875rem;
 }
+
+.mcb_robot{
+    position: absolute;
+    width: auto;
+    height: 150px;
+    right: 0;
+    bottom: 0;
+}
 @media (max-width: 1201px) {
     .mcb_footer_grid {
-        grid-template-columns: 150px 150px 150px;
+        grid-template-columns: 180px 180px 180px;
         .mcb_main_info {
             width: auto;
             grid-column: 1 / 4; 

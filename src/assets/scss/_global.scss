@@ -253,7 +253,9 @@ a:hover{
 .mcb-fw-6{
     font-weight: 600;
 }
-
+.mcb-pos-r{
+    position: relative;
+}
 // ! CARDS
 @mixin base-card{
     background-color: #fff;

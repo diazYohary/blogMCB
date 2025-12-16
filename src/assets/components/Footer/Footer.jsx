@@ -2,6 +2,7 @@ import styles from './Footer.module.scss'
 import mcbLogo from '../../img/MCB_footer.svg';
 import { Link } from 'react-router-dom';
 import { FooterLinks, socialMedia, mobileStores } from './FooterLinks';
+import robot from '../../img/Footer/robot.png';
 
 const Footer=()=>{
     const scrollToTop = () => {
@@ -36,7 +37,7 @@ const Footer=()=>{
                     </div>
                 ))}
 
-                <div className="mcb-flex-c mcb-gap-20">
+                <div className="mcb-flex-c mcb-gap-20 mcb-pos-r">
                     <h3 className='mcb-color-w mcb-fs-24 mcb-fw-5'>{socialMedia.title}</h3>
                     <div className="mcb-flex mcb-gap-20 mcb-ai-c">
                         {socialMedia.links.map((i, index)=>(
@@ -51,7 +52,7 @@ const Footer=()=>{
                             <img className={styles.mcb_mobilestore} src={store.src} alt={store.store} />
                         </a>
                     ))}
-
+                    <img src={robot} className={styles.mcb_robot} alt="Robot MCB" />
                 </div>
             </div>
             <hr />

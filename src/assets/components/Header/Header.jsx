@@ -45,7 +45,7 @@ const Header=()=>{
                                 ))}
                             </div>
                         ):(
-                            <div className='mcb-pos-r'>
+                            <div>
                                 <img onClick={handleMenu} className={styles.mcb_menu_icon} src={menu} alt="Abrir menú" />
                                 <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
                                     <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
@@ -81,7 +81,7 @@ const Header=()=>{
                             ))}
                         </div>
                     ):(
-                        <div className='mcb-pos-r'>
+                        <div>
                             <img onClick={handleMenu} className={styles.mcb_menu_icon} style={{filter:'brightness(0)'}} src={menu} alt="Abrir menú" />
                             <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
                                 <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
