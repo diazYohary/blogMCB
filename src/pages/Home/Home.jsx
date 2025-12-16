@@ -12,6 +12,7 @@ const Home = () => {
     const [data, setData] = useState([]);
     const [meta, setMeta] = useState({});
     const [loading, setLoading] = useState(false);
+
     const fetchData = useCallback(async (start, limit) => {
         setLoading(true);
         try {
@@ -57,7 +58,7 @@ const Home = () => {
     return (
         <>
             <HeroSection />
-            <RecommendedArticles data={data} />
+            <RecommendedArticles data={data} isLoading={loading}/>
             <WhatIF />
             <Prevention />
             <Versus />

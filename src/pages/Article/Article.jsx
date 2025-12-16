@@ -87,13 +87,16 @@ const Article = () => {
         }
         fetchData();
     }, [slug]);
+    
     return (
         <>
-            {loading && <p>Cargando...</p>}
             {error && <p>{error}</p>}
-            {articleData && (
+            {loading && (
+                <Title isLoading={loading}/>
+            )}
+            {articleData && !loading && (
                 <>
-                    <Title data={articleData} />
+                    <Title data={articleData}/>
                     <Body data={articleData} />
                     <Author data={articleData} />
                     <MoreArticles articles={relatedArticles} />
