@@ -69,8 +69,35 @@ const Header=()=>{
                 </div>
             </header>
         ):(
-            <header className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_header}`}>
-                <img src={logo} alt="MCBrokers" />
+            <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
+                <nav className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
+                    <Link to='/'>
+                        <img src={logo} className={styles.mcb_home_logo} alt="MCBrokers" />
+                    </Link>
+                    {isMobile ? (
+                        <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                            {HeaderLinks.map((i, index)=>(
+                                <Link key={index} to={i.url} className={`mcb-black-link`}>{i.title}</Link>
+                            ))}
+                        </div>
+                    ):(
+                        <div className='mcb-pos-r'>
+                            <img onClick={handleMenu} className={styles.mcb_menu_icon} style={{filter:'brightness(0)'}} src={menu} alt="Abrir menú" />
+                            <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
+                                <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
+                                    <p className="mcb-fs-28 mcb-fw-5">Menú</p>
+                                    <button onClick={handleMenu} className='mcb-no-btn'>
+                                        <img src={closeMenu} alt="Cerrar menú" />
+                                    </button>
+                                </div>
+
+                                {HeaderLinks.map((i, index)=>(
+                                    <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </nav>
             </header>
         )}
         </>
