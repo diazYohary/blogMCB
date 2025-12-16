@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import HeroSection from "./HeroSection/HeroSection";
+import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
 import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
 import WhatIF from "./WhatIF/WhatIF";
 import Prevention from "./Prevention/Prevention";
@@ -59,6 +60,7 @@ const Home = () => {
         <>
             {/* <HeroSection /> */}
             <RecommendedArticles data={data} isLoading={loading}/>
+            <ArticleResume/>
             <WhatIF />
             <Prevention />
             <Versus />
