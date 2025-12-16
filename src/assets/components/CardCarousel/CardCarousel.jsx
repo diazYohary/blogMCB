@@ -66,7 +66,6 @@ const CardCarousel = ({data}) => {
                     {data.map((article) => (
                         <ArticlePreview key={article.id} title={article.titulo} date={article.publishedAt} imgSrc={article.portada.url} url={article.slug} />
                     ))}
-                    {/* <ArticlePreview/> */}
                 </Slider>
             </div>
         </div>
