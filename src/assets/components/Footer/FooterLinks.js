@@ -11,27 +11,29 @@ export const FooterLinks=[
     {
         title:'Productos',
         links:[
-            {subtitle:'Salud', url:''},
-            {subtitle:'Vida', url:''},
-            {subtitle:'Auto', url:''},
-            {subtitle:'Hogar', url:''},
-            {subtitle:'Mascotas', url:''},
+            {subtitle:'Salud', url:'https://mcbrokers.com.mx/productos/salud'},
+            {subtitle:'Vida', url:'https://mcbrokers.com.mx/productos/vida'},
+            {subtitle:'Auto', url:'https://mcbrokers.com.mx/productos/auto'},
+            {subtitle:'Hogar', url:'https://mcbrokers.com.mx/productos/hogar'},
+            {subtitle:'Mascotas', url:'https://mcbrokers.com.mx/productos/mascotas'},
+            {subtitle:'Colegios', url:'https://mcbrokers.com.mx/productos/colegios'},
+            {subtitle:'Empresas', url:'https://mcbrokers.com.mx/productos/empresas'},
         ]
     },
     {
         title:'Nosotros',
         links:[
-            {subtitle:'Quiénes somos', url:''},
-            {subtitle:'Talento', url:''},
+            {subtitle:'Quiénes somos', url:'https://mcbrokers.com.mx/nosotros'},
+            {subtitle:'Talento', url:'https://mc-brokers.pandape.computrabajo.com/'},
             {subtitle:'Intranet', url:''},
         ]
     },
     {
         title:'Contacto',
         links:[
-            {subtitle:'Tengo un imprevisto', url:''},
-            {subtitle:'Servicio al cliente', url:''},
-            {subtitle:'Quiero cotizar', url:''},
+            {subtitle:'Tengo un imprevisto', url:'https://mcbrokers.com.mx/imprevisto'},
+            {subtitle:'Servicio al cliente', url:'https://mcbrokers.com.mx/imprevisto'},
+            {subtitle:'Quiero cotizar', url:'https://mcbrokers.com.mx/cotizar'},
         ]
     },
 ];
@@ -48,6 +50,6 @@ export const socialMedia={
 }
 
 export const mobileStores=[
-    { store: 'AppStore', url:'', src: appStore},
-    { store: 'GooglePlay', url:'', src: googlePlay},
+    { store: 'AppStore', url:'https://apps.apple.com/mx/app/mcbrokers/id6754467413', src: appStore},
+    { store: 'GooglePlay', url:'https://play.google.com/store/apps/details?id=mx.com.mcbrokers.app', src: googlePlay},
 ]
