@@ -1,0 +1,29 @@
+@keyframes skeleton-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%); 
+    }
+}
+.mcb_skeleton{
+    background-color: hsl(202, 50%, 88.2%);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.mcb_skeleton::after{
+    content: "";
+    animation: skeleton-animation 1s infinite;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.874), rgba(255, 255, 255, 0));
+}
+.mcb_circle_shape{
+    border-radius: 50%;
+}
