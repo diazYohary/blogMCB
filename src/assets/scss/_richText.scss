@@ -40,7 +40,7 @@ p.mcb-mk-caption{
     color: var(--black-3);
 }
 
-@media screen and (max-width:900px){
+@media screen and (max-width:1200px){
     h1.mcb-mk{
         font-size: 2rem;
     }
@@ -58,5 +58,14 @@ p.mcb-mk-caption{
     ul.mcb-mk, ol.mcb-mk{
         margin: 1.5rem 0;
         margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    h1.mcb-mk{
+        font-size: 1.75rem;
+    }
+    h2.mcb-mk, h3.mcb-mk{
+        font-size: 1.5rem;
     }
 }
