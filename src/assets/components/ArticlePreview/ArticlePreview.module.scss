@@ -14,6 +14,7 @@ $cont_w:310px;
     width: $cont_w;
     height: 150px;
     border-radius: var(--radius);
+    object-fit: cover;
 }
 .mcb_article_title{
     max-width: $cont_w;
