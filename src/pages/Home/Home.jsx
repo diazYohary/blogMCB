@@ -57,7 +57,7 @@ const Home = () => {
 
     return (
         <>
-            <HeroSection />
+            {/* <HeroSection /> */}
             <RecommendedArticles data={data} isLoading={loading}/>
             <WhatIF />
             <Prevention />

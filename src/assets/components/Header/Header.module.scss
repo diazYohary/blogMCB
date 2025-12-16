@@ -3,3 +3,21 @@
     background-color: #fff;
     box-shadow: 0 2px 4px #0000000d;;
 }
+
+.mcb_header_home{
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(180deg,#8eaecdd4 80px,#0000 35%),url('/src/assets/img/Home/heroSection.png');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: var(--transition);
+}
+
+@media screen and (max-width: 1500px) {
+    .mcb_header_home{
+        background-position-x: 0;
+    }
+}
