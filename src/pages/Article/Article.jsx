@@ -15,7 +15,6 @@ const Article = () => {
     const [relatedArticles, setRelatedArticles] = useState([]);
 
     async function getPostBySlug(slug) {
-        setLoading(true);
         try {
             const token = STRAPI_API_TOKEN;
             const path = `/articulos`;
@@ -34,13 +33,9 @@ const Article = () => {
         } catch (error) {
             console.error(error);
         }
-        finally {
-            setLoading(false);
-        }
     }
 
     const fetchRelatedArticles = async (category, start, limit) => {
-        setLoading(true);
         try {
             const token = STRAPI_API_TOKEN;
             const path = `/articulos`;
@@ -65,17 +60,16 @@ const Article = () => {
 
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     };
 
     useEffect(() => {
         async function fetchData() {
             if (slug) {
+                setLoading(true);
                 console.log("Cargando contenido para slug:", slug);
                 const data = await getPostBySlug(slug);
-                if (data.data.length === 0) setError("Artículo no encontrado.");
+                if (data.data.length === 0) {setError("Artículo no encontrado.") ; setLoading(false); return;};
                 setArticleData(data.data[0]);
 
                 const category = data.data[0].categoria.nombre;
@@ -83,6 +77,7 @@ const Article = () => {
                 // quitar este articulo por documentId
                 const filteredRelated = related.data.filter(article => article.documentId !== data.data[0].documentId);
                 setRelatedArticles(filteredRelated);
+                setLoading(false);
             }
         }
         fetchData();
