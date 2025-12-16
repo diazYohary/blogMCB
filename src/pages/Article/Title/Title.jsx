@@ -51,11 +51,11 @@ const Title=({
                         <div className={`mcb-flex mcb-gap-40 ${styles.toColumn}`}>
                             <div>
                                 <p>Escrito por:</p>
-                                <p className='mcb-fs-24'>{author}</p>
+                                <p className='mcb-fs-20'>{author}</p>
                             </div>
                             <div>
                                 <p>Publicado el:</p>
-                                <p className='mcb-fs-24'>{formatDate(publishDate)}</p>
+                                <p className='mcb-fs-20'>{formatDate(publishDate)}</p>
                             </div>
                         </div>
                     

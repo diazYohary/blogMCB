@@ -6,7 +6,7 @@
     }
 }
 .mcb_title{
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 .mcb_subtitle{
@@ -20,6 +20,7 @@ $img_space: 600px;
     display: grid;
     grid-template-columns: $img_space 1fr;
     gap: 30px;
+    align-items: flex-end;
     img{
         height: auto;
         width: $img_space;
@@ -35,6 +36,13 @@ $img_space: 600px;
             width: $img_space;
         }
     }
+    .mcb_title{
+        font-size: 2.5rem;
+    }
+
+    .mcb_subtitle{
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 900px){
@@ -48,13 +56,6 @@ $img_space: 600px;
             width: $img_space;
             border-radius: 20px;
         }
-    }
-
-    .mcb_title{
-        font-size: 3rem;
-    }
-    .mcb_subtitle{
-        font-size: 2rem;
     }
 
     .toColumn{
