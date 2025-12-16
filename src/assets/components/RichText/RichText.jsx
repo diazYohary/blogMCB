@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 
 export default function RichText({ data }) {
   return (
-    <section className="">
+    <section>
       <Markdown children={data.contenido} remarkPlugins={[remarkGfm]} 
       components={{
         h1: ({ node, ...props }) => (
@@ -31,6 +31,9 @@ export default function RichText({ data }) {
         ),
         ul: ({ node, ...props }) => (
           <ul className="mcb-mk" {...props} />
+        ),
+        ol: ({ node, ...props }) => (
+          <ol className="mcb-mk" {...props} />
         ),
         li: ({ node, ...props }) => (
           <li className="mcb-mk" {...props} />

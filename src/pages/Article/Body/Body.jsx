@@ -51,10 +51,10 @@ const Body=({
         }
     }
     return(
-        <div className={`${styles.mcb_article_body} mcb-gap-30`}>
+        <div className={`${styles.mcb_article_body}`}>
             <aside className='mcb-card mcb-gap-10 mcb-h-fc'>
                 <div>
-                    <h2>Tabla de contenido</h2>
+                    <h2 className='mcb-fs-28'>Tabla de contenido</h2>
                     <hr />
                 </div>
                 {sections.map((i, index)=>(

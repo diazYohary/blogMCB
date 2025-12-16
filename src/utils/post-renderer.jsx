@@ -6,14 +6,14 @@ export function postRenderer(section, index) {
       return <RichText key={index} data={section} />;
     case "articulos.imagen":
       return (
-      <>
-      <img
-        key={index}
-        src={section.imagen.url}
-        className=""
-          />
-          {section.imagen.caption && <p className="mcb-mk mcb-caption">{section.imagen.caption}</p>}
-      </>
+      <section>
+        <img
+          key={index}
+          src={section.imagen.url}
+          className="mcb-mk"
+        />
+        {section.imagen.caption && <p className="mcb-mk-caption">{section.imagen.caption}</p>}
+      </section>
       );
     default:
       return null;
