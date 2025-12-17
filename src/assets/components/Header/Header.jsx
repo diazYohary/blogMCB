@@ -11,7 +11,6 @@ import closeMenu from '../../img/Icons/closeMenu.svg';
 import { HeaderLinks } from './HeaderLinks';
 
 const Header=()=>{
-    const location=useLocation();
     const isMobile=!useIsMobileDevice();
     const [openMenu, setOpenMenu]=useState(false);
 
@@ -32,75 +31,36 @@ const Header=()=>{
     }, [openMenu]);
 
     return(
-        <>
-        {location.pathname === '/' ? (
-            <header className={`${styles.mcb_header_home}`}>
-                <nav className={`mcb-flex mcb-jc-c ${styles.mcb_home_nav}`}>
-                    <div className={`mcb-flex mcb-ai-c mcb-gap-30 mcb-jc-sb ${styles.mcb_home_nav_cont}`}>
-                        <img src={whiteLogo} className={styles.mcb_home_logo} alt="MCBrokers" />
-                        {isMobile ? (
-                            <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
-                                {HeaderLinks.map((i, index)=>(
-                                    <Link key={index} to={i.url} className={styles.mcb_home_menu_link}>{i.title}</Link>
-                                ))}
-                            </div>
-                        ):(
-                            <div>
-                                <img onClick={handleMenu} className={styles.mcb_menu_icon} src={menu} alt="Abrir menú" />
-                                <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
-                                    <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
-                                        <p className="mcb-fs-28 mcb-fw-5">Menú</p>
-                                        <button onClick={handleMenu} className='mcb-no-btn'>
-                                            <img src={closeMenu} alt="Cerrar menú" />
-                                        </button>
-                                    </div>
-
-                                    {HeaderLinks.map((i, index)=>(
-                                        <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+        <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
+            <nav className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
+                <Link to='/'>
+                    <img src={logo} className={styles.mcb_home_logo} alt="MCBrokers" />
+                </Link>
+                {isMobile ? (
+                    <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                        {HeaderLinks.map((i, index)=>(
+                            <Link key={index} to={i.url} className={`mcb-black-link`}>{i.title}</Link>
+                        ))}
                     </div>
-                </nav>
-                <div className={`${styles.mcb_home_title}`}>
-                    <h1>Bienvenido</h1>
-                    <h1>al Blog de MCBrokers</h1>
-                </div>
-            </header>
-        ):(
-            <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
-                <nav className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
-                    <Link to='/'>
-                        <img src={logo} className={styles.mcb_home_logo} alt="MCBrokers" />
-                    </Link>
-                    {isMobile ? (
-                        <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                ):(
+                    <div>
+                        <img onClick={handleMenu} className={styles.mcb_menu_icon} style={{filter:'brightness(0)'}} src={menu} alt="Abrir menú" />
+                        <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
+                            <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
+                                <p className="mcb-fs-28 mcb-fw-5">Menú</p>
+                                <button onClick={handleMenu} className='mcb-no-btn'>
+                                    <img src={closeMenu} alt="Cerrar menú" />
+                                </button>
+                            </div>
+
                             {HeaderLinks.map((i, index)=>(
-                                <Link key={index} to={i.url} className={`mcb-black-link`}>{i.title}</Link>
+                                <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
                             ))}
                         </div>
-                    ):(
-                        <div>
-                            <img onClick={handleMenu} className={styles.mcb_menu_icon} style={{filter:'brightness(0)'}} src={menu} alt="Abrir menú" />
-                            <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
-                                <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
-                                    <p className="mcb-fs-28 mcb-fw-5">Menú</p>
-                                    <button onClick={handleMenu} className='mcb-no-btn'>
-                                        <img src={closeMenu} alt="Cerrar menú" />
-                                    </button>
-                                </div>
-
-                                {HeaderLinks.map((i, index)=>(
-                                    <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </nav>
-            </header>
-        )}
-        </>
+                    </div>
+                )}
+            </nav>
+        </header>
     )
 }
 export default Header;
