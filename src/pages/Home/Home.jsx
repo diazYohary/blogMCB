@@ -134,7 +134,7 @@ const Home = () => {
 
     return (
         <>
-            {/* <HeroSection /> */}
+            <HeroSection />
             <RecommendedArticles data={data} isLoading={loading}/>
             <ArticleResume data={getRandomArticleFromDay()} isLoading={loading} />
             <WhatIF />
