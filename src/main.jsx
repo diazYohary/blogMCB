@@ -7,7 +7,7 @@ import './assets/scss/Styles.scss'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/blog'>
       <ScrollToTop/>
       <App />
     </BrowserRouter>
