@@ -10,18 +10,15 @@ const Author=({
     const authorName= data?.autor?.nombre || 'John Doe';
     const authorAvatar= data?.autor?.avatar?.url || JohnDoe;
     const authorBio=data?.autor?.biografia || 'Sample text';
-    const authorSocialMedia=[
-        {title: 'Linkedin', url:''},
-        {title: 'Facebook', url:''},
-        {title: 'Twitter', url:''},
-    ]
+    const authorSocialMedia=data?.autor?.redesSociales || [];
+
     const socialMedia=(name)=>{
-        switch(name){
-            case 'Linkedin':
+        switch(name.toLowerCase()){
+            case 'linkedin':
                 return Linkedin;
-            case 'Facebook':
+            case 'facebook':
                 return Facebook;
-            case 'Twitter':
+            case 'twitter':
                 return Twitter;
         }
     }
@@ -36,8 +33,8 @@ const Author=({
                         <p>{authorBio}</p>
                         <div className={`mcb-flex mcb-gap-20 ${styles.mq_jc}`}>
                             {authorSocialMedia.map((red)=>(
-                                <a href={red.url} key={red.title}>
-                                    <img src={socialMedia(red.title)} className={styles.mcb_author_sm} alt={red.title} />
+                                <a href={red.url} key={red.nombre}>
+                                    <img src={socialMedia(red.nombre)} className={styles.mcb_author_sm} alt={red.nombre} />
                                 </a>
                             ))}
                         </div>
