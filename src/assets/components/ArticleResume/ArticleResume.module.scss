@@ -25,6 +25,14 @@
     }
     // ! 1600PX
     @media screen and (max-width: 1600px) {
+        $img_w:500px;
+        grid-template-columns: 1fr $img_w;
+        .mcb_resume_img{
+            width: $img_w;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
         $img_w:400px;
         grid-template-columns: 1fr $img_w;
         .mcb_resume_img{

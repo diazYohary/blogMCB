@@ -9,7 +9,7 @@ const BreadcrumbArrow=()=>(
 
 const Breadcrumbs=({crumbs})=>{
     return(
-        <div className="mcb-flex mcb-ai-c mcb-gap-5">
+        <div className="mcb-flex mcb-ai-c mcb-gap-5 mcb-fs-14">
             {crumbs.map((crumb, crumbIndex)=>{
                 const isLast = crumbIndex === crumbs.length - 1;
                 return(
@@ -17,9 +17,8 @@ const Breadcrumbs=({crumbs})=>{
                         {isLast ? (
                             <span>{crumb.label}</span>
                         ) : (
-                            <Link to={crumb.url} className="mcb-w-link mcb-fs-14">{crumb.label}</Link>
+                            <Link to={crumb.url} className="mcb-w-link">{crumb.label}</Link>
                         )}
-
                         {!isLast && <BreadcrumbArrow/>}
                     </React.Fragment>
                 )
