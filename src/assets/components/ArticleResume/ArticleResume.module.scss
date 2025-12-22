@@ -6,7 +6,7 @@
     $img_w:600px;
     display: grid;
     gap: 40px;
-    grid-template-columns: 800px $img_w;
+    grid-template-columns: 1fr $img_w;
     justify-content: space-around;
     h1{
         font-size: 3rem;
@@ -23,49 +23,33 @@
         height: auto;
         border-radius: 20px;
     }
-}
-
-@media screen and (max-width: 1600px) {
-    .mcb_resume_cont{
-        $img_w:600px;
-        grid-template-columns: $img_w $img_w;
-        .mcb_resume_img{
-            width: $img_w;
-        }
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .mcb_resume_cont{
+    // ! 1600PX
+    @media screen and (max-width: 1600px) {
         $img_w:400px;
-        grid-template-columns: $img_w $img_w;
-        align-items: center;
+        grid-template-columns: 1fr $img_w;
         .mcb_resume_img{
             width: $img_w;
         }
     }
-}
-@media screen and (max-width: 950px) {
-    .mcb_resume_cont{
-        $img_w:400px;
-        grid-template-columns: $img_w;
-        align-items: center;
+
+    @media screen and (max-width: 950px) {
+        grid-template-columns: 1fr;
+        justify-items: center;
         .mcb_resume_img{
-            width: $img_w;
+            width: 80%;
         }
     }
-}
-@media screen and (max-width: 500px) {
-    .mcb_resume_cont{
-        $img_w:100%;
-        grid-template-columns: $img_w;
-        align-items: center;
+    
+    @media screen and (max-width: 500px) {
         h1{
             font-size: 2rem;
             text-align: center;
         }
         .mcb_resume_img{
-            width: $img_w;
+            width: 100%;
         }
     }
 }
+
+
+

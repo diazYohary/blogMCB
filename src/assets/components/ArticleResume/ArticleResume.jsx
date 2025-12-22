@@ -13,7 +13,7 @@ const ArticleResume=({
     const url=data?.slug || ''
     return(
         <article className={`mcb-flex mcb-pd-30 mcb-ai-c mcb-jc-c ${styles.mcb_resume}`}>
-            <section className={`mcb-generic-cont ${styles.mcb_resume_cont}`}>
+            <section className={`mcb-section-cont ${styles.mcb_resume_cont}`}>
                 {isLoading ? (
                     <>
                     <div>
