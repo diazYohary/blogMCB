@@ -1,0 +1,16 @@
+.mcb-section-cont{
+    width: 1500px;
+    transition: width .15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    @media screen and (max-width: 1600px) {
+        width: 90%;
+    }
+    // @media screen and (max-width: 1400px) {
+    //     width: 800px;
+    // }
+    // @media screen and (max-width: 950px) {
+    //     width: 80%;
+    // }
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+}
