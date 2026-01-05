@@ -9,6 +9,7 @@ $img_size: 250px;
     border-radius: 50%;
     width: $img_size;
     height: $img_size;
+    object-fit: contain;
 }
 
 .mcb_author_data{

@@ -1,8 +1,8 @@
-@import "./global";
-@import "./carouselControls";
-@import "./richText";
-@import "./link";
-@import "./defaultSpacing";
+@use "./global";
+@use "./carouselControls";
+@use "./richText";
+@use "./link";
+@use "./defaultSpacing";
 
 @font-face {
     font-family: "Plus Jakarta Sans";

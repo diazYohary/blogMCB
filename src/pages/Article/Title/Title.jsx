@@ -50,11 +50,11 @@ const Title=({
                         {/* <h2 className={styles.mcb_subtitle}>subbbbbbbbb</h2> */}
                         <div className={`mcb-flex mcb-gap-40 ${styles.toColumn}`}>
                             <div>
-                                <p>Escrito por:</p>
+                                <p className='mcb-color-w9'>Escrito por:</p>
                                 <p className='mcb-fs-20'>{author}</p>
                             </div>
                             <div>
-                                <p>Publicado el:</p>
+                                <p className='mcb-color-w9'>Publicado el:</p>
                                 <p className='mcb-fs-20'>{formatDate(publishDate)}</p>
                             </div>
                         </div>
