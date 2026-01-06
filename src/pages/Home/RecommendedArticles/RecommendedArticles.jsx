@@ -1,7 +1,7 @@
 import CardCarousel from "../../../assets/components/CardCarousel/CardCarousel";
 import CarouselSkeleton from "../../../assets/components/Skeletons/CarouselSkeleton";
 const RecommendedArticles=({
-    title="Articulos recomendados",
+    title="MCBrokers recomienda",
     data,
     isLoading
 })=>{
