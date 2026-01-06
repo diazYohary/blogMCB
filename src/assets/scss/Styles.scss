@@ -43,6 +43,10 @@
     font-family: "Plus Jakarta Sans", Helvetica, sans-serif;
 }
 
+*, *::before, *::after {
+    font-family: inherit;
+}
+
 h1, h2, h3, h4, h5{
     font-family: "Gojali", Arial, Helvetica, sans-serif;
 }

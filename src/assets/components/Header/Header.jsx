@@ -51,7 +51,7 @@ const Header=()=>{
                         }
                         ></DropdownMenu>
                         {HeaderLinks.map((i, index)=>(
-                            <Link key={index} to={i.url} className={`mcb-black-link`}>{i.title}</Link>
+                            <Link key={index} to={i.url} className={`mcb-black-link`} target='_blank'>{i.title}</Link>
                         ))}
                     </div>
                 ):(
@@ -66,7 +66,7 @@ const Header=()=>{
                             </div>
 
                             {HeaderLinks.map((i, index)=>(
-                                <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}>{i.title}</Link>
+                                <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}  target='_blank'>{i.title}</Link>
                             ))}
                         </div>
                     </div>
