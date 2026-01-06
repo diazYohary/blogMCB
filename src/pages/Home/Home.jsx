@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection/HeroSection";
 import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
 import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
-import WhatIF from "./WhatIF/WhatIF";
+import ABC from "./ABC/ABC";
 import Prevention from "./Prevention/Prevention";
 import Versus from "./Versus/Versus";
 import './Home.scss'
@@ -137,7 +137,7 @@ const Home = () => {
             <HeroSection />
             <RecommendedArticles data={data} isLoading={loading}/>
             <ArticleResume data={getRandomArticleFromDay()} isLoading={loading} />
-            <WhatIF />
+            <ABC/>
             <Prevention />
             <Versus />
             <>

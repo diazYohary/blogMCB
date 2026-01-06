@@ -11,7 +11,6 @@
 }
 .mcb_subtitle{
     font-weight: 400;
-    font-size: 1.5rem;
     margin-bottom: .8rem;
 }
 $img_space: 600px;
@@ -39,10 +38,7 @@ $img_space: 600px;
     .mcb_title{
         font-size: 2.5rem;
     }
-
-    .mcb_subtitle{
-        font-size: 1.25rem;
-    }
+    
 }
 
 @media screen and (max-width: 900px){
@@ -84,7 +80,5 @@ $img_space: 600px;
     .mcb_title{
         font-size: 2rem;
     }
-    .mcb_subtitle{
-        font-size: 1.5rem;
-    }
+    
 }

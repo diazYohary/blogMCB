@@ -32,19 +32,14 @@ const Title=({
                     ):(<>
                         <h1 className={styles.mcb_title}>{title}</h1>
                         {subtitle && (
-                            <h2 className={styles.mcb_subtitle}>{subtitle}</h2>
+                            <h2 className={`mcb-fs-24 ${styles.mcb_subtitle}`}>{subtitle}</h2>
                         )}
                         {/* <h2 className={styles.mcb_subtitle}>subbbbbbbbb</h2> */}
-                        <div className={`mcb-flex mcb-gap-40 ${styles.toColumn}`}>
                             <div>
                                 <p className='mcb-color-w9'>Escrito por:</p>
                                 <p className='mcb-fs-20'>{author}</p>
+                                <p className='mcb-color-w9'>{formatDate(publishDate)}</p>
                             </div>
-                            <div>
-                                <p className='mcb-color-w9'>Publicado el:</p>
-                                <p className='mcb-fs-20'>{formatDate(publishDate)}</p>
-                            </div>
-                        </div>
                     
                     </>)}
                 </div>
