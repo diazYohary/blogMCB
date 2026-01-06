@@ -2,12 +2,16 @@
     padding: 30px 20px 0 20px;
 }
 .mcb_wi_img{
-    width: 570px;
+    width: auto;
     height: 400px;
     transition: var(--transition);
     @media screen and (max-width: 1400px) {
-        width: 430px;
+        width: auto;
         height: 300px;
+    }
+    @media screen and (max-width: 950px) {
+        width: 60%;
+        height: auto;
     }
     @media screen and (max-width: 500px) {
         width: 100%;
