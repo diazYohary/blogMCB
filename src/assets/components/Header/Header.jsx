@@ -7,6 +7,7 @@ import logo from '../../img/MCBlogo.svg'
 import whiteLogo from '../../img/MCB_footer.svg'
 import menu from '../../img/Icons/mobileMenu.svg';
 import closeMenu from '../../img/Icons/closeMenu.svg';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 import { HeaderLinks } from './HeaderLinks';
 
@@ -38,6 +39,17 @@ const Header=()=>{
                 </Link>
                 {isMobile ? (
                     <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                        <DropdownMenu title={"Artículos"} 
+                        options={
+                            <div className='mcb-flex-c'>
+                            <Link>Sample</Link>
+                            <Link>Sample</Link>
+                            <Link>Sample</Link>
+                            <Link>Sample</Link>
+                            <Link>Sample</Link>
+                            </div>
+                        }
+                        ></DropdownMenu>
                         {HeaderLinks.map((i, index)=>(
                             <Link key={index} to={i.url} className={`mcb-black-link`}>{i.title}</Link>
                         ))}
