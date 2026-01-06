@@ -39,6 +39,7 @@ const Header=()=>{
                 </Link>
                 {isMobile ? (
                     <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                        <Link to='/' className={`mcb-black-link`}>Inicio</Link>
                         <DropdownMenu title={"Artículos"} 
                         options={
                             <div className='mcb-flex-c'>
@@ -64,7 +65,7 @@ const Header=()=>{
                                     <img src={closeMenu} alt="Cerrar menú" />
                                 </button>
                             </div>
-
+                            <Link to='/' className={styles.mcb_mobile_menu_link}>Inicio</Link>
                             {HeaderLinks.map((i, index)=>(
                                 <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}  target='_blank'>{i.title}</Link>
                             ))}
