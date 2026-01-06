@@ -14,21 +14,8 @@ const Title=({
     const author = data.autor?.nombre;
     const publishDate = data?.publishedAt;
     
-    const crumbs=[
-        {label:'Blog', url:'/'},
-        {label:'Artículo',},
-        {label:title, url:'/'},
-    ]
-
     return(
         <div className={` ${styles.mcb_article_title}`}>
-            <div className="mcb-pd-30">
-                {isLoading ?(
-                    <Skeleton width='300px'/>
-                ):(
-                    <Breadcrumbs crumbs={crumbs}/>
-                )}
-            </div>
             <div className={styles.mcb_title_grid}>
                 {isLoading ? (
                     <Skeleton height='300px' width='100%'/>

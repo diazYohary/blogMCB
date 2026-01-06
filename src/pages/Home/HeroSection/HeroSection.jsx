@@ -21,17 +21,12 @@ const HeroSection=()=>{
     const heroSectionAnimation = isMobile ? animationMobile : animationDesktop;
 
     return(
+        // ~ SE DEBE DE DEFINIR EN STRAPPI PARA PODER HACER QUE CAMBIE EL TITLE
+        <>
+        <section className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_title_cont}`}>
+            <h1 className={`${styles.mcb_hs_title}`}>Ideas y consejos para proteger lo que más amas.</h1>
+        </section>
         <section className={`mcb-pos-r ${styles.pale_blue_bg}`}>
-            {isMobile===false ? (
-                <div className={`${styles.mcb_hs_title}`}>
-                    <h1>Bienvenido</h1>
-                    <h1>al Blog de MCBrokers</h1>
-                </div>
-            ):(
-                <div className={`mcb-flex mcb-jc-c ${styles.mcb_hs_title_mobile}`}>
-                    <h1>Bienvenido al Blog de MCBrokers</h1>
-                </div>
-            )}
             <Lottie
                 animationData={heroSectionAnimation}
                 loop={true}
@@ -43,6 +38,7 @@ const HeroSection=()=>{
                 }}
             />
         </section>
+        </>
     )
 }
 export default HeroSection;

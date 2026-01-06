@@ -18,9 +18,8 @@ $cont_w:310px;
 }
 .mcb_article_title{
     max-width: $cont_w;
-    text-wrap: nowrap;
     overflow: hidden;
-    text-overflow: "...";;
+    text-overflow: "...";
 }
 .mcb_article_preview:hover{
     h2{
