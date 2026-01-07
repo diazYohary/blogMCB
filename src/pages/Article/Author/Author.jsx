@@ -10,8 +10,11 @@ const Author=({
     const authorName= data?.autor?.nombre || 'John Doe';
     const authorAvatar= data?.autor?.avatar?.url || JohnDoe;
     const authorBio=data?.autor?.biografia || 'Sample text';
-    const authorSocialMedia=data?.autor?.redesSociales || [];
-
+    const mcbSocialMedia=[
+        {id:'vb', nombre:'linkedin', url:''},
+        {id:'vb', nombre:'facebook', url:''},
+        {id:'vb', nombre:'twitter', url:''},
+    ];
     const socialMedia=(name)=>{
         switch(name.toLowerCase()){
             case 'linkedin':
@@ -31,9 +34,11 @@ const Author=({
                     <div className={styles.mcb_author_data}>
                         <p className="mcb-fs-24 mcb-fw-5">{authorName}</p>
                         <p>{authorBio}</p>
+                        <p className='mcb-fs-20'>Visita las redes sociales de MCBrokers</p>
+                        
                         <div className={`mcb-flex mcb-gap-20 ${styles.mq_jc}`}>
-                            {authorSocialMedia.map((red)=>(
-                                <a href={red.url} key={red.nombre}>
+                            {mcbSocialMedia.map((red)=>(
+                                <a href={red.url} key={red.nombre} title={red.nombre}>
                                     <img src={socialMedia(red.nombre)} className={styles.mcb_author_sm} alt={red.nombre} />
                                 </a>
                             ))}

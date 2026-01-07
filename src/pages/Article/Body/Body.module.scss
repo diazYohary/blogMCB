@@ -1,13 +1,23 @@
 .mcb_article_body{
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    // display: fle;
     padding: 30px;
-    gap: 50px;
+    @media screen and (max-width: 900px){
+        padding: 30px 25px;
+        // .mcb_article_body{
+        //     grid-template-columns: 1fr;
+        //     gap: 20px;
+        // }
+    }
 }
-@media screen and (max-width: 900px){
-    .mcb_article_body{
-        grid-template-columns: 1fr;
-        padding: 40px 25px;
-        gap: 20px;
+.mcb_article_cont{
+    width: 70%;
+    max-height: calc(100vh - 60px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    @media screen and (max-width: 900px){
+        width: 85%;
+    }
+    @media screen and (max-width: 600px){
+        width: 100%;
     }
 }

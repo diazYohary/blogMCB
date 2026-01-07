@@ -19,6 +19,12 @@ const Header=()=>{
         setOpenMenu(prev => !prev);
     }
 
+    const location=useLocation();
+
+    useEffect(() => {
+        setOpenMenu(false)
+    }, [location]);
+
     useEffect(() => {
         if (openMenu) {
             document.body.style.overflow = 'hidden';
@@ -30,6 +36,7 @@ const Header=()=>{
             document.body.style.overflow = 'unset';
         };
     }, [openMenu]);
+
 
     return(
         <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
