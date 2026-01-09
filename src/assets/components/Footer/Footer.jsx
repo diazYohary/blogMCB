@@ -1,7 +1,10 @@
+import Lottie from 'lottie-react';
 import styles from './Footer.module.scss'
 import mcbLogo from '../../img/MCB_footer.svg';
 import { Link } from 'react-router-dom';
 import { FooterLinks, socialMedia, mobileStores } from './FooterLinks';
+import robotAnim from '../../animations/Other/Robot_Footer.json';
+
 import robot from '../../img/Footer/robot.png';
 
 const Footer=()=>{
@@ -13,7 +16,7 @@ const Footer=()=>{
         });
     };
     return(
-        <footer className={`${styles.mcb_footer} mcb-flex-c mcb-gap-20`}>
+        <footer className={`${styles.mcb_footer} mcb-flex-c mcb-gap-20 mcb-pos-r`}>
             <div className={styles.mcb_footer_grid}>
                 <div className={`${styles.mcb_main_info} mcb-flex-c mcb-ai-fs mcb-gap-20`}>
                     <Link to='/' onClick={scrollToTop}>
@@ -37,7 +40,7 @@ const Footer=()=>{
                     </div>
                 ))}
 
-                <div className="mcb-flex-c mcb-gap-20 mcb-pos-r">
+                <div className="mcb-flex-c mcb-gap-20">
                     <h3 className='mcb-color-w mcb-fs-24 mcb-fw-5'>{socialMedia.title}</h3>
                     <div className="mcb-flex mcb-gap-20 mcb-ai-c">
                         {socialMedia.links.map((i, index)=>(
@@ -52,7 +55,6 @@ const Footer=()=>{
                             <img className={styles.mcb_mobilestore} src={store.src} alt={store.store} />
                         </a>
                     ))}
-                    <img src={robot} className={styles.mcb_robot} alt="Robot MCB" />
                 </div>
             </div>
             <hr />
@@ -63,6 +65,8 @@ const Footer=()=>{
                     <a href="">Terms & Conditions</a>
                 </div>
             </div>
+            
+            <Lottie className={styles.mcb_robot} animationData={robotAnim} loop={true} autoplay={true} />
         </footer>
     )
 }

@@ -46,9 +46,14 @@ $footer-bg: #5c5c5b;
 .mcb_robot{
     position: absolute;
     width: auto;
-    height: 150px;
-    right: 0;
-    bottom: 0;
+    height: 170px;
+    right: 30px;
+    bottom: 80px;
+    @media (max-width: 600px) {
+        height: 150px;
+        right: 0;
+        bottom: 120px;
+    }
 }
 @media (max-width: 1201px) {
     .mcb_footer_grid {
