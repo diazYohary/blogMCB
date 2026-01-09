@@ -9,7 +9,7 @@ const CustomerService = () => {
                 <div className='mcb-flex-c mcb-gap-10 mcb-ai-c mcb-txt-c'>
                     <h2 className='mcb-fs-32'>¿Quieres contratar tu protección?</h2>
                     <p className='mcb-color-primmary mcb-fs-20'>¡Yo te ayudo!</p>
-                    <a className='mcb-green-btn mcb-fs-18'>¡Haz click aquí!</a>
+                    <a className='mcb-green-btn mcb-fs-18' href='https://mcbrokers.com.mx/cotizar' target='_blank'>¡Haz click aquí!</a>
                 </div>
             </section>
         </article>

@@ -11,9 +11,9 @@ const Author=({
     const authorAvatar= data?.autor?.avatar?.url || JohnDoe;
     const authorBio=data?.autor?.biografia || 'Sample text';
     const mcbSocialMedia=[
-        {id:'vb', nombre:'linkedin', url:''},
-        {id:'vb', nombre:'facebook', url:''},
-        {id:'vb', nombre:'twitter', url:''},
+        {id:'vb', nombre:'linkedin', url:'https://mx.linkedin.com/company/mcbrokers'},
+        {id:'vb', nombre:'facebook', url:'https://www.facebook.com/MCBrokersMX'},
+        {id:'vb', nombre:'twitter', url:'https://x.com/mcbrokersmx'},
     ];
     const socialMedia=(name)=>{
         switch(name.toLowerCase()){
@@ -38,7 +38,7 @@ const Author=({
                         
                         <div className={`mcb-flex mcb-gap-20 ${styles.mq_jc}`}>
                             {mcbSocialMedia.map((red)=>(
-                                <a href={red.url} key={red.nombre} title={red.nombre}>
+                                <a href={red.url} key={red.nombre} title={red.nombre} target='_blank'>
                                     <img src={socialMedia(red.nombre)} className={styles.mcb_author_sm} alt={red.nombre} />
                                 </a>
                             ))}

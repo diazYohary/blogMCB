@@ -22,6 +22,10 @@ $img_size: 250px;
 .mcb_author_sm{
     height: 50px;
     aspect-ratio: 1/1;
+    @media screen and (max-width: 600px) {
+        height: 40px;
+    }
+
 }
 
 @media screen and (max-width: 1300px) {
