@@ -4,7 +4,7 @@ import Header from "../../assets/components/Header/Header"
 import Footer from "../../assets/components/Footer/Footer"
 
 const Layout=()=>{
-    const { pathname } = useLocation();
+    const pathname = useLocation();
 
     useEffect(() => {
         window.scrollTo({

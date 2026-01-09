@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+
 import Title from "./Title/Title";
 import Body from "./Body/Body";
 import Author from "./Author/Author";
 import MoreArticles from "./MoreArticles/MoreArticles";
+import CustomerService from "./CustomerService/CustomerService";
+
 import { fetchAPI } from "../../utils/fetch-api";
 import { STRAPI_API_TOKEN } from "../../../config";
 import { useParams } from "react-router-dom";
@@ -95,6 +98,7 @@ const Article = () => {
                     <Body data={articleData} />
                     <Author data={articleData} />
                     <MoreArticles articles={relatedArticles} />
+                    <CustomerService/>
                 </>
             )}
         </>

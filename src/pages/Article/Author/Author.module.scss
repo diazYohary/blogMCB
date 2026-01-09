@@ -19,8 +19,9 @@ $img_size: 250px;
         margin: 1rem 0;
     }
 }
-.mcb_author_sm svg path{
-    fill: red;
+.mcb_author_sm{
+    height: 50px;
+    aspect-ratio: 1/1;
 }
 
 @media screen and (max-width: 1300px) {
