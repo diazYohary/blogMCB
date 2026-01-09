@@ -304,40 +304,6 @@ a:hover{
     color: var(--black-3);
 }
 
-
-// ! BUTTONS
-.mcb-no-btn{
-    all: unset;
-    cursor: pointer;
-}
-@mixin base-btn{
-    cursor: pointer;
-    border: none;
-    font-weight: 600;
-    padding: 10px;
-    border-radius: var(--radius-btn);
-    font-family: var(--body-font);
-    width: fit-content;
-    height: fit-content;
-    transition: var(--transition);
-}
-.mcb-cta-btn{
-    @include base-btn;
-    color: #fff;
-    background-color: var(--cta-color-0);
-    &:hover {
-        background-color: var(--cta-color-1);
-    }
-}
-
-.mcb-green-btn{
-    @include base-btn;
-    color: #fff;
-    background-color: var(--color-green);
-    &:hover{
-        background-color: #678828;
-    }
-}
 /* ! GAP */
 .mcb-gap-5{
     gap: 5px;
@@ -387,6 +353,9 @@ a:hover{
     color: hsl(0, 0%, 90%);
 }
 
+.mcb-color-primmary{
+    color: var(--color-primary);
+}
 .mcb-color-accent{
     color: var(--color-accent);
 }

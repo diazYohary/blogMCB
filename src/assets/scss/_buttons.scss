@@ -1,0 +1,34 @@
+// ! BUTTONS
+.mcb-no-btn{
+    all: unset;
+    cursor: pointer;
+}
+@mixin base-btn{
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: var(--radius-btn);
+    font-family: var(--body-font);
+    // width: fit-content;
+    height: fit-content;
+    transition: var(--transition);
+}
+.mcb-cta-btn{
+    @include base-btn;
+    color: #fff;
+    background-color: var(--cta-color-0);
+    &:hover {
+        background-color: var(--cta-color-1);
+    }
+}
+
+.mcb-green-btn{
+    @include base-btn;
+    color: #fff;
+    background-color: #7fb65e;
+    &:hover{
+        color: #fff;
+        background-color: #649d45;
+    }
+}
