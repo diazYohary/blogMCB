@@ -15,6 +15,7 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [categorias, setCategorias] = useState([]);
     const categoriasRef = useRef(null);
+    const [landingData, setLandingData] = useState(null);
 
 
     const fetchData = useCallback(async (start, limit) => {
@@ -117,6 +118,43 @@ const Home = () => {
         }
     }, [fetchArticlesByCategoria]);
 
+    const fetchLandingData = useCallback(async () => {
+
+        try {
+            const token = STRAPI_API_TOKEN;
+            const options = { headers: { Authorization: `Bearer ${token}` } };
+            const urlParamsObject = {
+                populate: {
+                    portada: {
+                        populate: "*"
+                    },
+                    articuloDestacado: {
+                        populate: "*"
+                    },
+                    secciones: {
+                        populate: {
+                            articulos: {
+                                populate: '*',
+                            },
+                            visual: {
+                                populate: '*',
+                            },
+                            estilos: {
+                                populate: '*',
+                            },
+                        },
+                    },
+                },
+            };
+
+            const landingRes = await fetchAPI('/landing-blog', urlParamsObject, options);
+
+            setLandingData(landingRes.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
+
     const getRandomArticleFromDay = useCallback(() => {
         if (data.length === 0) return null;
         const today = new Date();
@@ -128,7 +166,8 @@ const Home = () => {
     useEffect(() => {
         fetchData(0, Number(STRAPI_PAGE_LIMIT));
         fetchCategorias();
-    }, [fetchCategorias, fetchData]);
+        fetchLandingData();
+    }, [fetchCategorias, fetchData, fetchLandingData]);
 
 
 
@@ -137,9 +176,14 @@ const Home = () => {
             <HeroSection />
             <RecommendedArticles data={data} isLoading={loading}/>
             <ArticleResume data={getRandomArticleFromDay()} isLoading={loading} />
-            <ABC/>
-            <Prevention />
-            <Versus />
+            {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
+                <>
+                    <ABC key={index} seccionData={seccion}/>
+                    {/* <Prevention /> */}
+                </>
+            ))}
+
+            {/* <Versus /> */}
             <>
                 {// Si las categorias tienen articulos, los mostramos
                     categorias.length > 0 && categorias.map((categoria) => (
