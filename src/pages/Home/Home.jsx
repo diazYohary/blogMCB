@@ -19,7 +19,6 @@ const Home = () => {
 
 
     const fetchData = useCallback(async (start, limit) => {
-        setLoading(true);
         try {
             const token = STRAPI_API_TOKEN;
             const path = `/articulos`;
@@ -49,8 +48,6 @@ const Home = () => {
             // setMeta(responseData.meta);
         } catch (error) {
             console.error(error);
-        } finally {
-            setLoading(false);
         }
     }, []);
 
@@ -155,18 +152,18 @@ const Home = () => {
         }
     }, []);
 
-    const getRandomArticleFromDay = useCallback(() => {
-        if (data.length === 0) return null;
-        const today = new Date();
-        const seed = today.getFullYear() + today.getMonth() + today.getDate();
-        const randomIndex = seed % data.length;
-        return data[randomIndex];
-    }, [data]);
-
     useEffect(() => {
-        fetchData(0, Number(STRAPI_PAGE_LIMIT));
-        fetchCategorias();
-        fetchLandingData();
+        const loadData = async () => {
+            setLoading(true);
+            await Promise.all([
+                fetchData(0, Number(STRAPI_PAGE_LIMIT)),
+                fetchCategorias(),
+                fetchLandingData()
+            ]);
+            setLoading(false);
+        };
+        
+        loadData();
     }, [fetchCategorias, fetchData, fetchLandingData]);
 
 
@@ -175,7 +172,7 @@ const Home = () => {
         <>
             <HeroSection />
             <RecommendedArticles data={data} isLoading={loading}/>
-            <ArticleResume data={getRandomArticleFromDay()} isLoading={loading} />
+            <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
             {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
                 <>
                     <ABC key={index} seccionData={seccion}/>
