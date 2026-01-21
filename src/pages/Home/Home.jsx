@@ -2,9 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection/HeroSection";
 import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
 import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
-import ABC from "./ABC/ABC";
-import Prevention from "./Prevention/Prevention";
-import Versus from "./Versus/Versus";
+import LandingSection from "../../assets/components/LandingSection/LandingSection";
+
 import './Home.scss'
 import { fetchAPI } from "../../utils/fetch-api";
 import { STRAPI_API_TOKEN, STRAPI_PAGE_LIMIT } from "../../../config";
@@ -170,36 +169,38 @@ const Home = () => {
 
     return (
         <>
-            <HeroSection />
-            <RecommendedArticles data={data} isLoading={loading}/>
-            <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
-            {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
-                <>
-                    <ABC key={index} seccionData={seccion}/>
-                    {/* <Prevention /> */}
-                </>
-            ))}
+        <HeroSection />
 
-            {/* <Versus /> */}
-            <>
-                {// Si las categorias tienen articulos, los mostramos
-                    categorias.length > 0 && categorias.map((categoria) => (
-                        categoria.articulos.length > 0 &&
-                        <RecommendedArticles
-                            // si articulos es undefined mostramos loading 
-                            isLoading={categoria.articulos === undefined}
-                            key={categoria.id}
-                            title={categoria.nombre}
-                            data={categoria.articulos}
-                        />
-                    ))}
-                {categorias.some(c => c.articulos === undefined) &&
-                    <RecommendedArticles
-                        isLoading={true}
-                        title="Cargando categorías..."
-                        data={[]}
-                    />}
-            </>
+        <RecommendedArticles data={data} isLoading={loading}/>
+
+        <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
+
+        {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
+            <LandingSection 
+                key={index} 
+                seccionData={seccion}
+                alternative={index % 2 !== 0}
+            />
+        ))}
+
+        {categorias.length > 0 && categorias.map((categoria) => (
+            categoria.articulos.length > 0 &&
+            <RecommendedArticles
+                // si articulos es undefined mostramos loading 
+                isLoading={categoria.articulos === undefined}
+                key={categoria.id}
+                title={categoria.nombre}
+                data={categoria.articulos}
+            />
+        ))}
+
+        {categorias.some(c => c.articulos === undefined) && (
+            <RecommendedArticles
+                isLoading={true}
+                title="Cargando categorías..."
+                data={[]}
+            />
+        )}
         </>
     )
 }

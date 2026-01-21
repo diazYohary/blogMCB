@@ -60,7 +60,7 @@ const LandingSection = ({seccionData, alternative}) => {
                         >
                             <h2 
                                 className='mcb-color-b3 mcb-fs-28' 
-                                style={{color: seccionData?.estilos?.colorTitulo || ''}}
+                                style={{color: seccionData?.estilos?.colorTexto || ''}}
                             >{article.titulo}</h2>
                             <p 
                                 className='mcb-color-b4 mcb-fs-18' 
