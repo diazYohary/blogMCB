@@ -3,10 +3,9 @@
     padding: 30px;
     @media screen and (max-width: 900px){
         padding: 30px 25px;
-        // .mcb_article_body{
-        //     grid-template-columns: 1fr;
-        //     gap: 20px;
-        // }
+    }
+    @media screen and (max-width: 600px){
+        padding: 20px;
     }
 }
 .mcb_article_cont{

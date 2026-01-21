@@ -366,6 +366,12 @@ a:hover{
 .mcb-bg-w{
     background-color: #fff;
 }
+
+.mcb-mk-video{
+    width: 600px;
+    border-radius: 10px;
+    aspect-ratio: 3/2;
+}
 /* * MEDIA QUERY */
 @media screen and (max-width: 1100px){
     .mq-hide{
@@ -397,6 +403,16 @@ a:hover{
     }
 }
 
+@media screen and (max-width: 850px){
+    .imd-col{
+        flex-direction: column;
+    }
+
+    .imd-ai-c{
+        align-items: center;
+    }
+
+}
 @media screen and (max-width: 601px) {
     body, html{
         font-size: 14px;
