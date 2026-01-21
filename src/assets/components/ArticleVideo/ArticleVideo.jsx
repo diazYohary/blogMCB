@@ -3,7 +3,7 @@ export default function ArticleVideo({ data }) {
   const videoId = url.match(/(?:https?:)?(?:\/\/)?(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*?[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/);
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId?.[1]}` : null;
   return embedUrl ? (
-    <div className="mcb-mk-video-container">
+    <div className="mcb-flex mcb-jc-c">
       <iframe
         className="mcb-mk-video"
         src={embedUrl}
