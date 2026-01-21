@@ -1,0 +1,16 @@
+.mcb_ls_img{
+    width: auto;
+    max-height: 400px;
+    transition: var(--transition);
+    @media screen and (max-width: 1100px) {
+        height: 300px;
+    }
+    @media screen and (max-width: 600px) {
+        height: 250px;
+    }
+    // @media screen and (max-width: 500px) {
+    //     width: 100%;
+    //     height: auto;
+    // }
+}
+
