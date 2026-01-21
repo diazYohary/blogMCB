@@ -40,12 +40,12 @@ const Header=()=>{
 
     return(
         <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
-            <nav className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
+            <div className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
                 <Link to='/'>
                     <img src={logo} className={styles.mcb_home_logo} alt="MCBrokers" />
                 </Link>
                 {isMobile ? (
-                    <div className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
+                    <nav className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
                         <Link to='/' className={`mcb-black-link`}>Inicio</Link>
                         <DropdownMenu title={"Artículos"} 
                         options={
@@ -61,11 +61,11 @@ const Header=()=>{
                         {HeaderLinks.map((i, index)=>(
                             <Link key={index} to={i.url} className={`mcb-black-link`} target='_blank'>{i.title}</Link>
                         ))}
-                    </div>
+                    </nav>
                 ):(
                     <div>
                         <img onClick={handleMenu} className={styles.mcb_menu_icon} style={{filter:'brightness(0)'}} src={menu} alt="Abrir menú" />
-                        <div className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
+                        <nav className={`${openMenu===true ? styles.open:''} ${styles.mcb_menu_cont} mcb-flex-c mcb-gap-30`}>
                             <div className="mcb-flex mcb-gap-30 mcb-jc-sb">
                                 <p className="mcb-fs-28 mcb-fw-5">Menú</p>
                                 <button onClick={handleMenu} className='mcb-no-btn'>
@@ -76,10 +76,10 @@ const Header=()=>{
                             {HeaderLinks.map((i, index)=>(
                                 <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}  target='_blank'>{i.title}</Link>
                             ))}
-                        </div>
+                        </nav>
                     </div>
                 )}
-            </nav>
+            </div>
         </header>
     )
 }
