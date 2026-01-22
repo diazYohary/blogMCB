@@ -25,8 +25,8 @@
 }
 
 .mcb_home_logo{
-    width: 140px;
-    height: 71px;
+    height: 70px;
+    aspect-ratio: 2/1;
 }
 
 .mcb_home_menu_link{
@@ -151,12 +151,14 @@
     }
 }
 @media screen and (max-width: 600px) {
+    .mcb_header{
+        height: 75px;
+    }
     .mcb_header, .mcb_home_nav{
         padding: 20px;
     }
     .mcb_home_logo{
-        width: 120px;
-        height: auto;
+        height: 50px;
     }
     .mcb_home_title{
         top: 100px;
