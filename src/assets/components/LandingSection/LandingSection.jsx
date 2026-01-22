@@ -37,7 +37,7 @@ const LandingSection = ({seccionData, alternative}) => {
             className={`mcb-flex mcb-jc-c mcb-pd-30`} 
             style={{backgroundColor: seccionData?.estilos?.colorFondo || ''}}
         >
-            <section className='mcb-section-cont mcb-flex mcb-jc-c mcb-gap-20 imd-col imd-ai-c'>
+            <section className='mcb-section-cont mcb-flex mcb-ai-c mcb-jc-c mcb-gap-20 imd-col imd-ai-c'>
                 {/* LEFT IMAGE */}
                 {(!alternative && !isMobileDevice) && <SectionImage seccionData={seccionData}/>}
                 
