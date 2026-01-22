@@ -14,42 +14,39 @@ const CardCarousel = ({data}) => {
             case 'XL':
                 return {
                     slidesToShow: 4,
-                    slidesToScroll: 4,
-                    infinite: true,
                 };
             case 'LG':
                 return {
                     slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
                 };
             case 'MD':
                 return {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
+                    dots: true,
                 };
             case 'SM':
                 return {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: false,
+                    dots: true,
                 };
             case 'XS':
             default:
                 return {
                     arrows: false,
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: false,
+                    dots: true,
                 };
         }
     };
     
     const baseSettings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        slidesToScroll: 1,
+        // speed: 000,
+        cssEase: "linear"
     };
 
     const currentSettings = {

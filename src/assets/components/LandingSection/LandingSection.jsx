@@ -42,7 +42,7 @@ const LandingSection = ({seccionData, alternative}) => {
                 {(!alternative && !isMobileDevice) && <SectionImage seccionData={seccionData}/>}
                 
                 {/* SECTION DATA */}
-                <div className="mcb-flex-c mcb-gap-20 mcb-w-5">
+                <div className="mcb-flex-c mcb-gap-20 mcb-w-5" style={{minWidth:"50%"}}>
                     {/* SECTION TITLE */}
                     <h2 
                         className='mcb-fs-40 mcb-color-accent mqm-txt-c' 
