@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import HeroSection from "./HeroSection/HeroSection";
-import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
-import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
-import LandingSection from "../../assets/components/LandingSection/LandingSection";
-
-import './Home.scss'
 import { fetchAPI } from "../../utils/fetch-api";
 import { STRAPI_API_TOKEN, STRAPI_PAGE_LIMIT } from "../../../config";
+
+// ~ COMPONENTS
+import HeroSection from "./HeroSection/HeroSection";
+import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
+
+import LandingSection from "../../assets/components/LandingSection/LandingSection";
+import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
+import VideoCarousel from "../../assets/components/VideoCarousel/VideoCarousel";
+
+// ~ styles
+import './Home.scss'
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -169,6 +174,13 @@ const Home = () => {
 
     return (
         <>
+        <section className="mcb-flex mcb-pd-30 mcb-ai-c mcb-jc-c">
+            <div className="mcb-section-cont mcb-flex-c mcb-gap-20">
+                <h2 className="mcb-fs-32 mqm-txt-c">Video section</h2>
+                <VideoCarousel/>
+            </div>
+        </section>
+
         <HeroSection />
 
         <RecommendedArticles data={data} isLoading={loading}/>

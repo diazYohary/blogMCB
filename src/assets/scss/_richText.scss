@@ -14,8 +14,12 @@ h3.mcb-mk{
     
 }
 p.mcb-mk{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     margin: 1rem 0;
-    text-indent: 20px;
+    word-spacing: 5px;
+    text-rendering: optimizeLegibility;
+    // text-indent: 20px;
     text-align: justify;
 }
 ul.mcb-mk, ol.mcb-mk{
