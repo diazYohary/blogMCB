@@ -1,5 +1,14 @@
-.mcb_videoCarousel_mb{
-    @media screen and (max-width: 950px){
+.mcb_videoCarousel{
+    width: 100%;
+    
+    @media screen and (max-width: 1320px) {
+        width: 650px;
         margin-bottom: 30px;    
+    }
+    @media screen and (max-width: 750px){
+        width: 320px;
+    }
+    @media screen and (max-width: 420px) {
+        width: 300px;
     }
 }

@@ -27,6 +27,7 @@
     --radius: 10px;
     --radius-btn:20px;
     --transition: all .15s ease-in-out;
+    --smooth: .15s cubic-bezier(0.25, 0.8, 0.25, 1);
     --body-pd: 30px
 }
 html,

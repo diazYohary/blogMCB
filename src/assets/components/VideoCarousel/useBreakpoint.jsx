@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 const BREAKPOINTS = {
     XL: 1600, 
-    LG: 1400, 
-    MD: 950, 
-    SM: 500 
+    LG: 1320, 
+    MD: 750, 
+    SM: 420 
 };
 
 const getBreakpoint = (width) => {
