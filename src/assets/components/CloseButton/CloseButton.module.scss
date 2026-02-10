@@ -1,0 +1,10 @@
+.mcb_close_btn{
+    svg path{
+        transition: all var(--smooth);
+    }
+    &:hover{
+        svg path{
+            stroke: hsl(0, 0%, 75%);
+        }
+    }
+}
