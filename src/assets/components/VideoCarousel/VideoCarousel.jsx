@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react'
+import React, {useState, useMemo, useEffect} from 'react'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,44 +9,62 @@ import VideoCard from '../VideoCard/VideoCard'
 import YouTubeVideoPlayer from '../YouTubeVideoPlayer/YouTubeVideoPlayer';
 
 const VideoCarousel = ({videoData}) => {
-    console.log('render')
+    const [selectedUrl, setSelectedUrl] = useState(null);
     
-    const settings = useMemo(() => ({
+    const currentBreakpoint = useBreakpoint();
+    
+    const getSettingsByBreakpoint = (breakpoint) => {
+        switch (breakpoint) {
+            case 'XL':
+                return {
+                    slidesToShow: 4,
+                };
+            case 'LG':
+                return {
+                    slidesToShow: 3,
+                };
+            case 'MD':
+                return {
+                    slidesToShow: 2,
+                    dots: true,
+                };
+            case 'SM':
+                return {
+                    slidesToShow: 1,
+                    dots: true,
+                };
+            case 'XS':
+            default:
+                return {
+                    arrows: false,
+                    slidesToShow: 1,
+                    dots: true,
+                };
+        }
+    };
+    
+    const baseSettings = {
         dots: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 5000,
         slidesToScroll: 1,
-        slidesToShow: 4, // Default XL
-        cssEase: "linear",
-        responsive: [
-            {
-                breakpoint: 1600, // Tus valores de BREAKPOINTS
-                settings: { slidesToShow: 4 }
-            },
-            {
-                breakpoint: 1320,
-                settings: { slidesToShow: 3 }
-            },
-            {
-                breakpoint: 850,
-                settings: { slidesToShow: 2, dots: true }
-            },
-            {
-                breakpoint: 500,
-                settings: { slidesToShow: 1, dots: true, arrows: false }
-            }
-        ]
-    }), []);
+        cssEase: "linear"
+    };
+    
+    const currentSettings = useMemo(() => ({
+        ...baseSettings,
+        ...getSettingsByBreakpoint(currentBreakpoint),
+    }), [currentBreakpoint]);
 
-    const [selectedUrl, setSelectedUrl] = useState(null)
+    const sliderKey = currentBreakpoint;
 
     return (
         <>
-        <Slider {...settings} className={styles.mcb_videoCarousel} >
-            {videoData.map((i, index)=>
-                <VideoCard key={index} videoData={i} onPlay={()=>setSelectedUrl(i?.url)}/>
-            )}
+        <Slider key={sliderKey} {...currentSettings}  className={styles.mcb_videoCarousel} >
+        {videoData.map((i, index)=>
+            <VideoCard key={index} videoData={i} onPlay={()=>setSelectedUrl(i?.url)}/>
+        )}
         </Slider>
         {selectedUrl && 
             <YouTubeVideoPlayer 

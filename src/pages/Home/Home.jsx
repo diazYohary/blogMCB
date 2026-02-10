@@ -8,19 +8,20 @@ import RecommendedArticles from "./RecommendedArticles/RecommendedArticles";
 
 import LandingSection from "../../assets/components/LandingSection/LandingSection";
 import ArticleResume from "../../assets/components/ArticleResume/ArticleResume";
-import VideoCarousel from "../../assets/components/VideoCarousel/VideoCarousel";
+import VideoSection from "./VideoSection/VideoSection";
 
 // ~ styles
 import './Home.scss'
 
 // ! video array data
 const videos=[
-    {url:'https://www.youtube.com/watch?v=p_9MzxTBpb4&list=RDp_9MzxTBpb4&start_radio=1', title:'sample', img:'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'},
-    {url:'https://youtu.be/EmRBqX2xbNU?si=eKLl_daBpHX7fGLo', title:'sample', img:'https://www.mamp.one/wp-content/uploads/2024/09/image-resources2.jpg'},
-    {url:'https://www.youtube.com/watch?v=7h2ryr_uUEs&list=RD7h2ryr_uUEs&start_radio=1', title:'sample', img:'https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D'},
-    {url:'https://www.youtube.com/watch?v=qN4ooNx77u0&list=RDqN4ooNx77u0&start_radio=1', title:'sample', img:'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg'},
-    {url:'https://youtu.be/EmRBqX2xbNU?si=eKLl_daBpHX7fGLo', title:'sample', img:'https://www.techsmith.com/wp-content/uploads/2023/08/What-are-High-Resolution-Images.png'},
+    {url:'https://www.youtube.com/watch?v=p_9MzxTBpb4&list=RDp_9MzxTBpb4&start_radio=1', title:'vIDEO 1', img:'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png'},
+    {url:'https://youtu.be/EmRBqX2xbNU?si=eKLl_daBpHX7fGLo', title:'PODCAST 2', img:'https://www.mamp.one/wp-content/uploads/2024/09/image-resources2.jpg'},
+    {url:'https://www.youtube.com/watch?v=7h2ryr_uUEs&list=RD7h2ryr_uUEs&start_radio=1', title:'NOTICIAS', img:'https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D'},
+    {url:'https://www.youtube.com/watch?v=qN4ooNx77u0&list=RDqN4ooNx77u0&start_radio=1', title:'VIDEOBLOG', img:'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg'},
+    {url:'https://youtu.be/EmRBqX2xbNU?si=eKLl_daBpHX7fGLo', title:'RESUMEN DE LA SEMANA', img:'https://www.techsmith.com/wp-content/uploads/2023/08/What-are-High-Resolution-Images.png'},
 ]
+
 const Home = () => {
     const [data, setData] = useState([]);
     // const [meta, setMeta] = useState({});
@@ -182,17 +183,8 @@ const Home = () => {
 
     return (
         <>
-        <section className="mcb-flex mcb-pd-30 mcb-ai-c mcb-jc-c">
-            <div className="mcb-section-cont mcb-flex-c mcb-gap-20">
-                <h2 className="mcb-fs-32 mqm-txt-c">Video section</h2>
-                <div className="mcb-flex mcb-jc-c">
-                    <VideoCarousel videoData={videos}/>
-                </div>
-            </div>
-        </section>
-
         <HeroSection />
-
+        <VideoSection sectionTitle={'Checha esta info'} videos={videos}/>
         <RecommendedArticles data={data} isLoading={loading}/>
 
         <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
