@@ -1,4 +1,14 @@
 // ! BUTTONS
+@mixin default-btn{
+    cursor: pointer;
+    border: none;
+    font-family: var(--body-font);
+    font-size: inherit;
+    background: none;
+}
+button{
+    @include default-btn()
+}
 .mcb-no-btn{
     all: unset;
     cursor: pointer;
