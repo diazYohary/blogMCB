@@ -184,16 +184,15 @@ const Home = () => {
     return (
         <>
         <HeroSection />
-        <VideoSection sectionTitle={'Checha esta info'} videos={videos}/>
         <RecommendedArticles data={data} isLoading={loading}/>
 
         <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
 
         {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
             <LandingSection 
-                key={index} 
-                seccionData={seccion}
-                alternative={index % 2 !== 0}
+            key={index} 
+            seccionData={seccion}
+            alternative={index % 2 !== 0}
             />
         ))}
 
@@ -205,16 +204,18 @@ const Home = () => {
                 key={categoria.id}
                 title={categoria.nombre}
                 data={categoria.articulos}
-            />
-        ))}
+                />
+            ))}
 
         {categorias.some(c => c.articulos === undefined) && (
             <RecommendedArticles
-                isLoading={true}
-                title="Cargando categorías..."
-                data={[]}
+            isLoading={true}
+            title="Cargando categorías..."
+            data={[]}
             />
         )}
+
+        <VideoSection sectionTitle={'Carrusel de videos'} videos={videos}/>
         </>
     )
 }

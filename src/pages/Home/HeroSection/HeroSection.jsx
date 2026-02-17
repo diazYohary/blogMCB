@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import styles from './HeroSection.module.scss'
 import animationDesktop from '../../../assets/animations/Home/HeroSection.json'
 import animationMobile from '../../../assets/animations/Home/HeroSectionMobile.json'
 
-const HeroSection=()=>{
+const HeroSection=({url})=>{
     const [isMobile, setIsMobile]=useState(false);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ const HeroSection=()=>{
         <section className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_title_cont}`}>
             <h1 className={`${styles.mcb_hs_title}`}>Ideas y consejos para proteger lo que más amas.</h1>
         </section>
-        <section className={`mcb-pos-r ${styles.pale_blue_bg}`}>
+        <Link to={url} className={`mcb-pos-r ${styles.pale_blue_bg}`}>
             <Lottie
                 animationData={heroSectionAnimation}
                 loop={true}
@@ -37,7 +38,7 @@ const HeroSection=()=>{
                     zIndex: -1,
                 }}
             />
-        </section>
+        </Link>
         </>
     )
 }
