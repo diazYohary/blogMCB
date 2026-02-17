@@ -12,7 +12,7 @@ export default function RichText({ data }) {
           <h1 className="mcb-mk" {...props} />
         ),
         h2: ({ node, ...props }) => (
-          <h2 className="mcb-mk" id={props.children.replace(/\s+/g, '-').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")} {...props} />
+          <h2 className="mcb-mk" {...props} />
         ),
         h3: ({ node, ...props }) => (
           <h3 className="mcb-mk" {...props} />
