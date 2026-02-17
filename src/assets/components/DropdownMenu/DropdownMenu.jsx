@@ -33,7 +33,7 @@ const DropdownMenu = ({title, options}) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ type: "spring" }}
-                    className={styles.mcb_dropdown_menu}
+                    className={`${styles.mcb_dropdown_menu} mcb-flex-c`}
                 >
                     {options}
                 </motion.div>
