@@ -55,7 +55,7 @@ const Body=({
             <article ref={contentRef} className={`mcb-card ${styles.mcb_article_cont}`}>
                 {contenidos.map(postRenderer)}
             </article>
-            <PDFViewer url={'https://www.uv.es/fragar/html/pdf/html11.pdf'}/>
+            {/* <PDFViewer url={'https://www.uv.es/fragar/html/pdf/html11.pdf'}/> */}
         </div>
     )
 }

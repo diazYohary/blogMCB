@@ -183,7 +183,7 @@ const Home = () => {
 
     return (
         <>
-        <HeroSection />
+        <HeroSection url='https://mcbrokers.com.mx/'/>
         <RecommendedArticles data={data} isLoading={loading}/>
 
         <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
@@ -215,7 +215,7 @@ const Home = () => {
             />
         )}
 
-        <VideoSection sectionTitle={'Carrusel de videos'} videos={videos}/>
+        {/* <VideoSection sectionTitle={'Carrusel de videos'} videos={videos}/> */}
         </>
     )
 }
