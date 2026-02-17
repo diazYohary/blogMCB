@@ -4,12 +4,13 @@ import useIsMobileDevice from '../../../utils/isMobileDevice';
 
 import styles from './Header.module.scss';
 import logo from '../../img/MCBlogo.svg'
-import whiteLogo from '../../img/MCB_footer.svg'
+// import whiteLogo from '../../img/MCB_footer.svg'
 import menu from '../../img/Icons/mobileMenu.svg';
 import closeMenu from '../../img/Icons/closeMenu.svg';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
+import DropdownMenuMobile from '../DropdownMenuMobile/DropdownMenuMobile';
 
-import { HeaderLinks } from './HeaderLinks';
+import { HeaderLinks, productosIndiviual, productosColectiva } from './HeaderLinks';
 
 const Header=()=>{
     const isMobile=!useIsMobileDevice();
@@ -41,26 +42,34 @@ const Header=()=>{
     return(
         <header className={`mcb-flex mcb-jc-c ${styles.mcb_header}`}>
             <div className={`mcb-flex mcb-ai-c mcb-jc-sb ${styles.mcb_header_cont}`}>
-                <Link to='/'>
+                <a href='https://mcbrokers.com.mx/' title='MCBrokers'>
                     <img src={logo} className={styles.mcb_home_logo} alt="MCBrokers" />
-                </Link>
+                </a>
                 {isMobile ? (
-                    <nav className={`mcb-flex mcb-gap-30 mcb-ai-c ${styles.mcb_home_menu}`}>
-                        <Link to='/' className={`mcb-black-link`}>Inicio</Link>
-                        {/* <DropdownMenu title={"Artículos"} 
-                        options={
-                            <div className='mcb-flex-c'>
-                            <Link>Sample</Link>
-                            <Link>Sample</Link>
-                            <Link>Sample</Link>
-                            <Link>Sample</Link>
-                            <Link>Sample</Link>
-                            </div>
-                        }
-                        ></DropdownMenu> */}
-                        {HeaderLinks.map((i, index)=>(
-                            <Link key={index} to={i.url} className={`mcb-black-link`} target='_blank'>{i.title}</Link>
-                        ))}
+                    <nav className={`mcb-flex mcb-gap-30 mcb-ai-c`}>                        
+                        {HeaderLinks.map((i, index)=>{
+                            if(i.title==='Productos'){
+                                return(
+                                    <DropdownMenu key={index} title={"Productos"} 
+                                    options={
+                                        <>
+                                        <p>{productosIndiviual.title}</p>
+                                        {productosIndiviual.elements.map(e=>
+                                            <a href={e.url} key={e.label}>{e.label}</a>
+                                        )}
+                                        <p>{productosColectiva.title}</p>
+                                        {productosColectiva.elements.map(e=>
+                                            <a href={e.url} key={e.label}>{e.label}</a>
+                                        )}
+                                        </>
+                                    }
+                                    ></DropdownMenu>
+                                )
+                            }
+                            return(
+                                <Link key={index} to={i.url} className={`mcb-black-link`} >{i.title}</Link>
+                            )
+                        })}
                     </nav>
                 ):(
                     <div>
@@ -72,10 +81,30 @@ const Header=()=>{
                                     <img src={closeMenu} alt="Cerrar menú" />
                                 </button>
                             </div>
-                            <Link to='/' className={styles.mcb_mobile_menu_link}>Inicio</Link>
-                            {HeaderLinks.map((i, index)=>(
-                                <Link key={index} to={i.url} className={styles.mcb_mobile_menu_link}  target='_blank'>{i.title}</Link>
-                            ))}
+                            {HeaderLinks.map((i, index)=>{
+                                if(i.title==='Productos'){
+                                    return(
+                                        <DropdownMenuMobile key={index} title={'Productos'}>
+                                            <p>{productosIndiviual.title}</p>
+                                            {productosIndiviual.elements.map(e=>
+                                                <a href={e.url} key={e.label}>{e.label}</a>
+                                            )}
+                                            <p>{productosColectiva.title}</p>
+                                            {productosColectiva.elements.map(e=>
+                                                <a href={e.url} key={e.label}>{e.label}</a>
+                                            )}
+                                        </DropdownMenuMobile>
+                                    )
+                                }
+
+                                return(
+                                    <Link 
+                                        key={index} 
+                                        to={i.url} 
+                                        className={styles.mcb_mobile_menu_link}
+                                    >{i.title}</Link>
+                                )
+                            })}
                         </nav>
                     </div>
                 )}
