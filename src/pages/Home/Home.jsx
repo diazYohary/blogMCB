@@ -12,6 +12,7 @@ import VideoSection from "./VideoSection/VideoSection";
 
 // ~ styles
 import './Home.scss'
+import PageRenderer from "../../assets/components/PageRenderer/PageRenderer";
 
 // ! video array data
 const videos=[
@@ -23,180 +24,125 @@ const videos=[
 ]
 
 const Home = () => {
-    const [data, setData] = useState([]);
-    // const [meta, setMeta] = useState({});
     const [loading, setLoading] = useState(false);
-    const [categorias, setCategorias] = useState([]);
-    const categoriasRef = useRef(null);
-    const [landingData, setLandingData] = useState(null);
+    const [pageData, setPageData] = useState(null);
 
+    const fetchLandingBlogData = useCallback(async () => {
 
-    const fetchData = useCallback(async (start, limit) => {
         try {
             const token = STRAPI_API_TOKEN;
-            const path = `/articulos`;
-            const urlParamsObject = {
-                sort: { createdAt: "desc" },
-                populate: {
-                    portada: { fields: ["url"] },
-                    categoria: { populate: "*" },
-                    autor: {
-                        populate: "*",
-                    },
-                },
-                pagination: {
-                    start: start,
-                    limit: limit,
-                },
-            };
             const options = { headers: { Authorization: `Bearer ${token}` } };
-            const responseData = await fetchAPI(path, urlParamsObject, options);
-
-            if (start === 0) {
-                setData(responseData.data);
-            } else {
-                setData((prevData) => [...prevData, ...responseData.data]);
-            }
-
-            // setMeta(responseData.meta);
-        } catch (error) {
-            console.error(error);
-        }
-    }, []);
-
-    const fetchArticlesByCategoria = useCallback(async (categoriaId) => {
-
-        try {
-            const token = STRAPI_API_TOKEN;
-            const path = `/articulos`;
             const urlParamsObject = {
+                // filter per slug of the landing page
                 filters: {
-                    categoria: {
-                        documentId: { $eq: categoriaId },
+                    slug: {
+                        $eq: 'blog-landing-page',
                     },
                 },
                 populate: {
-                    portada: { fields: ["url"] },
-                    categoria: { populate: "*" },
-                    autor: {
-                        populate: "*",
-                    }
-                },
-                pagination: {
-                    limit: 5,
-                },
-            };
-            const options = { headers: { Authorization: `Bearer ${token}` } };
-            const responseData = await fetchAPI(path, urlParamsObject, options);
-            return responseData.data;
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }, []);
-
-    const fetchCategorias = useCallback(async () => {
-
-        try {
-            const token = STRAPI_API_TOKEN;
-            const options = { headers: { Authorization: `Bearer ${token}` } };
-
-            const categoriasRes = await fetchAPI('/categorias', {}, options);
-
-            if(!categoriasRef.current){
-                categoriasRef.current = categoriasRes.data
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 5);
-            }
-
-            const categoriasAlAzar = categoriasRef.current;
-
-            const categoriasConArticulos = await Promise.all(
-                categoriasAlAzar.map(async (categoria) => {
-                    const articulos = await fetchArticlesByCategoria(categoria.documentId);
-                    return {
-                        ...categoria,
-                        articulos,
-                    };
-                })
-            );
-
-            setCategorias(categoriasConArticulos);
-
-        } catch (error) {
-            console.error(error);
-        }
-    }, [fetchArticlesByCategoria]);
-
-    const fetchLandingData = useCallback(async () => {
-
-        try {
-            const token = STRAPI_API_TOKEN;
-            const options = { headers: { Authorization: `Bearer ${token}` } };
-            const urlParamsObject = {
-                populate: {
-                    portada: {
-                        populate: "*"
-                    },
-                    articuloDestacado: {
-                        populate: "*"
-                    },
-                    secciones: {
-                        populate: {
-                            articulos: {
+                    bloques: {
+                        populate: '*',
+                        on: {
+                            'sections.carrusel-videos': {
+                                populate: {
+                                    videos: {
+                                        populate: '*',
+                                    },
+                                },
+                            },
+                            'sections.carrusel-articulos': {
                                 populate: '*',
                             },
-                            visual: {
+                            'blocks.banner': {
+                                populate: {
+                                    link: '*',
+                                    visual: {
+                                        populate: {
+                                            imagen: {
+                                                fields: ['url'],
+                                            },
+                                            lottie: {
+                                                fields: ['url'],
+                                            }
+                                        }
+                                    },
+                                }
+                            },
+                            'sections.articulo-destacado': {
                                 populate: '*',
                             },
-                            estilos: {
-                                populate: '*',
-                            },
+                            'sections.seccion-articulos': {
+                                populate: {
+                                    articulos: {
+                                        populate: '*',
+                                    },
+                                    visual: {
+                                        populate: {
+                                            imagen: {
+                                                fields: ['url'],
+                                            },
+                                            lottie: {
+                                                fields: ['url'],
+                                            }
+                                        }
+                                    },
+                                }
+                            }
                         },
                     },
                 },
             };
-
-            const landingRes = await fetchAPI('/landing-blog', urlParamsObject, options);
-
-            setLandingData(landingRes.data);
+            const landingRes = await fetchAPI('/paginas', urlParamsObject, options);
+            console.log('Landing Blog Data:', landingRes);
+            if (landingRes.data.length > 0) {
+                setPageData(landingRes.data[0]);
+            }
         } catch (error) {
             console.error(error);
         }
     }, []);
+
 
     useEffect(() => {
         const loadData = async () => {
             setLoading(true);
             await Promise.all([
-                fetchData(0, Number(STRAPI_PAGE_LIMIT)),
-                fetchCategorias(),
-                fetchLandingData()
+                fetchLandingData(),
+                fetchLandingBlogData()
             ]);
             setLoading(false);
         };
-        
+
         loadData();
-    }, [fetchCategorias, fetchData, fetchLandingData]);
+    }, [fetchLandingData, fetchLandingBlogData]);
 
 
 
     return (
         <>
-        <HeroSection url='https://mcbrokers.com.mx/'/>
-        <RecommendedArticles data={data} isLoading={loading}/>
+            {pageData === null && (<HeroSection url={{ url: 'https://mcbrokers.com.mx/' }} />)}
 
-        <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} />
+            {pageData && pageData.bloques && pageData.bloques.map((seccion, index) => (
+                <PageRenderer
+                    key={index}
+                    bloque={seccion}
+                />
+            ))}
 
-        {landingData && landingData.secciones && landingData.secciones.map((seccion, index) => (
-            <LandingSection 
-            key={index} 
-            seccionData={seccion}
-            alternative={index % 2 !== 0}
+
+            {/* <RecommendedArticles data={data} isLoading={loading}/> */}
+
+            {/* <ArticleResume data={landingData?.articuloDestacado} isLoading={loading} /> */}
+
+            {/* {false && landingData.secciones && landingData.secciones.map((seccion, index) => (
+            <LandingSection
+                key={index}
+                seccionData={seccion}
+                alternative={index % 2 !== 0}
             />
-        ))}
+        ))} */}
 
-        {categorias.length > 0 && categorias.map((categoria) => (
+            {/* {false && categorias.length > 0 && categorias.map((categoria) => (
             categoria.articulos.length > 0 &&
             <RecommendedArticles
                 // si articulos es undefined mostramos loading 
@@ -204,18 +150,18 @@ const Home = () => {
                 key={categoria.id}
                 title={categoria.nombre}
                 data={categoria.articulos}
-                />
-            ))}
-
-        {categorias.some(c => c.articulos === undefined) && (
-            <RecommendedArticles
-            isLoading={true}
-            title="Cargando categorías..."
-            data={[]}
             />
-        )}
+        ))} */}
 
-        {/* <VideoSection sectionTitle={'Carrusel de videos'} videos={videos}/> */}
+            {/* {false && categorias.some(c => c.articulos === undefined) && (
+            <RecommendedArticles
+                isLoading={true}
+                title="Cargando categorías..."
+                data={[]}
+            />
+        )} */}
+
+            {/* <VideoSection sectionTitle={'Carrusel de videos'} videos={videos}/> */}
         </>
     )
 }

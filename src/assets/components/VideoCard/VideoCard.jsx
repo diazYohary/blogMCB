@@ -17,11 +17,11 @@ const VideoCard = ({
         <div className="mcb-pos-r">
             <button type='button' onClick={()=>onPlay()} className={`mcb-flex-c ${styles.mcb_video_card}`}>
                 <div className={styles.mcb_video_preview}>
-                    <img src={videoData?.img || defatultVideoPreview} alt={videoData?.title || 'Video Title'} />
+                    <img src={videoData?.imagen.url || defatultVideoPreview} alt={videoData?.titulo || 'Video Title'} />
                     <PlayButton/>
                 </div>
                 <div className={styles.mcb_video_title}>
-                    <h2 className='mcb-fs-18 mcb-fw-5 mcb-color-b2'>{videoData?.title || 'Video Title'}</h2>
+                    <h2 className='mcb-fs-18 mcb-fw-5 mcb-color-b2'>{videoData?.titulo || 'Video Title'}</h2>
                 </div>
             </button>
         </div>

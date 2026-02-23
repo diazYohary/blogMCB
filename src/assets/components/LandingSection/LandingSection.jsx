@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './LandingSection.module.scss'
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import useIsMobileDevice from '../../../utils/isMobileDevice';
 
 const SectionImage=({seccionData})=>{
-    const tipoVisual = seccionData?.visual?.tipo || 'imagen';
+    const tipoVisual = seccionData?.visual?.tipo || 'Imagen';
+    const [animationData, setAnimationData] = useState(null);
+
+    useEffect(() => {
+        if (tipoVisual === 'Json' && seccionData?.visual?.lottie?.url) {
+            fetch(seccionData.visual.lottie.url)
+                .then(res => res.json())
+                .then(setAnimationData)
+                .catch(err => console.error('Error loading Lottie animation:', err));
+        }
+    }, [tipoVisual, seccionData?.visual?.lottie?.url]);
+
+
     if(tipoVisual === 'Imagen'){
         return(
             <img 
@@ -16,14 +28,15 @@ const SectionImage=({seccionData})=>{
         )
     }
 
-    if(tipoVisual === 'Json'){
-        return(
+    if (tipoVisual === 'Json') {
+        if (!animationData) return null;
+
+        return (
             <Lottie
-                animationData={seccionData?.visual?.json || null}
-                loop={seccionData?.visual?.loop || true}
-                autoplay={seccionData?.visual?.autoplay || true}
-                className={`${styles.mcb_lottie}`}
-                height={200} width={100} 
+                animationData={animationData}
+                loop={seccionData?.visual?.loop ?? true}
+                autoplay={seccionData?.visual?.autoplay ?? true}
+                className={styles.mcb_lottie}
             />
         )
     }
