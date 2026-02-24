@@ -48,9 +48,7 @@ const Article = () => {
                 populate: {
                     portada: { fields: ["url"] },
                     categoria: { populate: "*" },
-                    autor: {
-                        populate: "*",
-                    },
+                    autor: { populate: "*" },
                 },
                 pagination: {
                     start: start,

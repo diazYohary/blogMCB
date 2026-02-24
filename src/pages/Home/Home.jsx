@@ -76,6 +76,9 @@ const Home = () => {
                                     articulos: {
                                         populate: '*',
                                     },
+                                    estilos: {
+                                        populate: '*',
+                                    },
                                     visual: {
                                         populate: {
                                             imagen: {
@@ -107,14 +110,14 @@ const Home = () => {
         const loadData = async () => {
             setLoading(true);
             await Promise.all([
-                fetchLandingData(),
+                // fetchLandingData(),
                 fetchLandingBlogData()
             ]);
             setLoading(false);
         };
 
         loadData();
-    }, [fetchLandingData, fetchLandingBlogData]);
+    }, [fetchLandingBlogData]);
 
 
 

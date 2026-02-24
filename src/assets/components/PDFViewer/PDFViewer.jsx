@@ -20,12 +20,12 @@ const goToPage = (targetPage) => {
     }
 };
 
-const sampleUlr='https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf';
+// const sampleUlr='https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf';
 
 // ~ MAIN COMPONENT
 
 const PDFViewer = ({url}) => {
-    const fileUrl=url || sampleUlr;
+    const fileUrl=url;
     const [isOpen, setIsOpen]=useState(false);
     const [isLoading, setIsLoading]=useState(false);
     const [numPages, setNumPages] = useState(null);
