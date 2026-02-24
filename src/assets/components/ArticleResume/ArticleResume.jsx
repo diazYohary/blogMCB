@@ -13,7 +13,11 @@ const ArticleResume=({
     const url=data?.slug || ''
     return(
         <article className={`mcb-flex mcb-pd-30 mcb-ai-c mcb-jc-c ${styles.mcb_resume}`}>
-            <section className={`mcb-section-cont ${styles.mcb_resume_cont}`}>
+            <Link 
+                to={`/article/${url}`} 
+                className={`mcb-section-cont ${styles.mcb_resume_cont}`} 
+                style={{textDecoration:'none'}}
+            >
                 {isLoading ? (
                     <>
                     <div>
@@ -33,7 +37,7 @@ const ArticleResume=({
                         <img src={portada} className={styles.mcb_resume_img} alt={title} />
                     </>
                 )}
-            </section>
+            </Link>
         </article>
     )
 }

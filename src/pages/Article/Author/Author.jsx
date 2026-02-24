@@ -28,7 +28,7 @@ const Author=({
     return(
         <section className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_article_author}`}>
             <div>
-                <h1 className='mcb-fs-32 mcb-fw-5 mcb-txt-c'>Acerca del autor</h1>
+                <h1 className='mcb-fs-32 mcb-fw-6 mcb-txt-c'>Acerca del autor</h1>
                 <div className={`mcb-flex mcb-gap-30 ${styles.mq_c}`}>
                     <img className={styles.mcb_author_img} src={authorAvatar} alt={authorName} />
                     <div className={styles.mcb_author_data}>
