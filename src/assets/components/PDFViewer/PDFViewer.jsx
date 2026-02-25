@@ -65,10 +65,10 @@ const PDFViewer = ({url}) => {
             <div className={`${styles.document_panel} mcb-flex mcb-jc-c mcb-ai-c`}>
                 <nav className={`${styles.document_panel_cont} mcb-flex mcb-gap-20 mcb-ai-c mcb-jc-sb`}>
                     <div className="mcb-flex mcb-gap-10 mcb-ai-c">
-                        <CloseButton onClose={()=>setIsOpen(false)}/>
                         <img src={pdfIcon} alt="PDF" />
                         <p className={styles.document_name}>Vista previa</p>
                     </div>                    
+                    <CloseButton onClose={()=>setIsOpen(false)}/>
                 </nav>
             </div>
 
