@@ -46,7 +46,7 @@ const Title=({
                     {subtitle && (
                         <h2 className={`mcb-fs-24 ${styles.mcb_subtitle}`}>{subtitle}</h2>
                     )}
-                    <div className="mcb-flex mcb-gap-20 mcb-jc-sb mqm-col">
+                    <div className="mcb-flex mcb-gap-20 mcb-jc-sb">
                         <div>
                             <p className='mcb-color-w9'>Escrito por:</p>
                             <p className='mcb-fs-20'>{author}</p>
