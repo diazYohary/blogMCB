@@ -9,7 +9,7 @@ const DropdownMenuMobile = ({
 
     return (
         <div>
-            <button type='button' onClick={handleSubMenu} className='mcb-fs-18' style={{padding:'unset', color:'var(--black-2)'}}>
+            <button type='button' onClick={handleSubMenu} className='mcb-fs-18 mcb-flex mcb-ai-c' style={{padding:'unset', color:'var(--black-2)'}}>
                 {title || 'Click para desplegar menu'}{openSubMenu ? ('▴'):('▾')}
             </button>
             <nav className={`${styles.mcb_submenu} ${openSubMenu ? styles.open:''}`}>
