@@ -88,7 +88,11 @@ const Article = () => {
         <>
             {error && <p>{error}</p>}
             {loading && (
+                <>
                 <Title isLoading={loading}/>
+                <Body isLoading={loading} />
+                </>
+                
             )}
             {articleData && !loading && (
                 <>
