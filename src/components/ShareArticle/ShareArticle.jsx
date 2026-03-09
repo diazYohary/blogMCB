@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react"
-import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, LinkedinShareButton} from "react-share"
+import useIsMobileDevice from '@/utils/isMobileDevice';
+import { 
+    FacebookShareButton, 
+    TwitterShareButton, 
+    WhatsappShareButton, 
+    LinkedinShareButton
+} from "react-share"
 
 import LinkedinIcon from '../../assets/img/SocialMedia/linkedin.svg'
 import TwitterIcon from '../../assets/img/SocialMedia/xlogo.svg'
 import FacebookIcon from '../../assets/img/SocialMedia/facebook.svg'
 import WhatsappIcon from '../../assets/img/SocialMedia/whatsapp.svg'
+import styles from './ShareArticle.module.scss'
 
 
 const ShareIcon = () => (
@@ -16,6 +23,7 @@ const ShareIcon = () => (
 
 const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
     const [canNativeShare, setCanNativeShare] = useState(false);
+    const isMobile=useIsMobileDevice();
 
     useEffect(() => {
         // ~ the browser can share?
@@ -32,7 +40,7 @@ const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
         }
     };
 
-    if (canNativeShare) {
+    if (canNativeShare && isMobile) {
         return (
         <button onClick={handleNativeShare}>
             <ShareIcon/>
@@ -46,19 +54,19 @@ const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
             <p className="mcb-fs-20">Compartir en:</p>
             <div className="mcb-flex mcb-gap-10">
                 <LinkedinShareButton url={url} quote={title}>
-                    <img src={LinkedinIcon} alt="Linkedin" />
+                    <img className={styles.mcb_share_btn} src={LinkedinIcon} alt="Linkedin" />
                 </LinkedinShareButton>
 
                 <FacebookShareButton url={url} quote={title}>
-                    <img src={FacebookIcon} alt="Facebook" />
+                    <img className={styles.mcb_share_btn} src={FacebookIcon} alt="Facebook" />
                 </FacebookShareButton>
 
                 <WhatsappShareButton url={url} title={title}>
-                    <img src={WhatsappIcon} alt="Whatsapp" />
+                    <img className={styles.mcb_share_btn} src={WhatsappIcon} alt="Whatsapp" />
                 </WhatsappShareButton>
                 
                 <TwitterShareButton url={url} title={title}>
-                    <img src={TwitterIcon} alt="Twitter" />
+                    <img className={styles.mcb_share_btn} src={TwitterIcon} alt="Twitter" />
                 </TwitterShareButton>
             </div>
         </div>
