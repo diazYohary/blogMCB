@@ -42,7 +42,7 @@ const SectionImage=({seccionData})=>{
     }
 }
 
-const LandingSection = ({seccionData, alternative}) => {
+const LandingSection = ({seccionData, invertirOrden}) => {
     const isMobileDevice=useIsMobileDevice();
     
     return (
@@ -50,9 +50,13 @@ const LandingSection = ({seccionData, alternative}) => {
             className={`mcb-flex mcb-jc-c mcb-pd-30`} 
             style={{backgroundColor: seccionData?.estilos?.colorFondo || ''}}
         >
-            <section className='mcb-section-cont mcb-flex mcb-ai-c mcb-jc-c mcb-gap-20 imd-col imd-ai-c'>
+            <section className='mcb-section-cont mcb-flex mcb-ai-c mcb-jc-c mcb-gap-20 imd-col imd-ai-c'
+                style={{ 
+                    flexDirection: (!isMobileDevice && invertirOrden) ? 'row-reverse' : undefined 
+                }}
+            >
                 {/* LEFT IMAGE */}
-                {(!alternative && !isMobileDevice) && <SectionImage seccionData={seccionData}/>}
+                {(!isMobileDevice) && <SectionImage seccionData={seccionData}/>}
                 
                 {/* SECTION DATA */}
                 <div className="mcb-flex-c mcb-gap-20 mcb-w-5" style={{minWidth:"50%"}}>
@@ -83,11 +87,7 @@ const LandingSection = ({seccionData, alternative}) => {
                     ))}
                 </div>
                 
-                {(!alternative && isMobileDevice) && <SectionImage seccionData={seccionData}/>}
-                
-                {/* RIGHT IMAGE */}
-                {alternative && <SectionImage seccionData={seccionData}/>}
-                
+                {(isMobileDevice) && <SectionImage seccionData={seccionData}/>}
             </section>
         </article>
     )

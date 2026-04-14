@@ -18,7 +18,7 @@ export default function PageRenderer({ bloque }) {
             return <LandingSection
                 key={bloque.id}
                 seccionData={bloque}
-                alternative={bloque.id % 2 !== 0}
+                // direction={''}
             />
         case 'blocks.banner':
             return <HeroSection url={bloque.link} data={bloque.visual} />
