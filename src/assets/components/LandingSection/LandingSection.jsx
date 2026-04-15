@@ -42,7 +42,8 @@ const SectionImage=({seccionData})=>{
     }
 }
 
-const LandingSection = ({seccionData, invertirOrden}) => {
+const LandingSection = ({seccionData}) => {
+    const invertirOrden = seccionData.alineacion === 'DERECHA';
     const isMobileDevice=useIsMobileDevice();
     
     return (
