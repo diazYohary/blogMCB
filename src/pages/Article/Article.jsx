@@ -8,16 +8,18 @@ import CustomerService from "./CustomerService/CustomerService";
 
 import { fetchAPI } from "../../utils/fetch-api";
 import { STRAPI_API_TOKEN } from "../../../config";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const Article = () => {
     const { slug } = useParams();
+    const [searchParams] = useSearchParams();
+    const previewStatus = searchParams.get('status');
     const [articleData, setArticleData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [relatedArticles, setRelatedArticles] = useState([]);
 
-    async function getPostBySlug(slug) {
+    async function getPostBySlug(slug, status) {
         try {
             const token = STRAPI_API_TOKEN;
             const path = `/articulos`;
@@ -29,6 +31,7 @@ const Article = () => {
                     categoria: { fields: ['nombre'] },
                     contenidos: { populate: '*' },
                 },
+                ...(status === 'draft' && { status: 'draft' }),
             };
             const options = { headers: { Authorization: `Bearer ${token}` } };
             const response = await fetchAPI(path, urlParamsObject, options);
@@ -69,7 +72,7 @@ const Article = () => {
             if (slug) {
                 setLoading(true);
                 console.log("Cargando contenido para slug:", slug);
-                const data = await getPostBySlug(slug);
+                const data = await getPostBySlug(slug, previewStatus);
                 if (data.data.length === 0) {setError("Artículo no encontrado.") ; setLoading(false); return;};
                 setArticleData(data.data[0]);
 
@@ -82,7 +85,7 @@ const Article = () => {
             }
         }
         fetchData();
-    }, [slug]);
+    }, [slug, previewStatus]);
     
     return (
         <>
