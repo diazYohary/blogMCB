@@ -1,8 +1,9 @@
 import styles from './Author.module.scss';
 import JohnDoe from '../../../assets/img/john_doe.png'
-import Facebook from '../../../assets/img/SocialMedia/fb_blue.svg';
-import Linkedin from '../../../assets/img/SocialMedia/linkedin_blue.svg';
-import Twitter from '../../../assets/img/SocialMedia/x_blue.svg';
+import facebook from '../../../assets/img/SocialMedia/fb_blue.svg';
+import linkedin from '../../../assets/img/SocialMedia/linkedin_blue.svg';
+import twitter from '../../../assets/img/SocialMedia/x_blue.svg';
+import instagram from '../../../assets/img/SocialMedia/instagram_blue.svg';
 
 const Author=({
     data={},
@@ -11,20 +12,12 @@ const Author=({
     const authorAvatar= data?.autor?.avatar?.url || JohnDoe;
     const authorBio=data?.autor?.biografia || 'Sample text';
     const mcbSocialMedia=[
-        {id:'vb', nombre:'linkedin', url:'https://mx.linkedin.com/company/mcbrokers'},
-        {id:'vb', nombre:'facebook', url:'https://www.facebook.com/MCBrokersMX'},
-        {id:'vb', nombre:'twitter', url:'https://x.com/mcbrokersmx'},
+        {icon: linkedin,nombre:'linkedin', url:'https://mx.linkedin.com/company/mcbrokers'},
+        {icon: instagram,nombre:'instagram', url:'https://www.instagram.com/mcbrokersmexico'},
+        {icon: facebook,nombre:'facebook', url:'https://www.facebook.com/MCBrokersMX'},
+        {icon: twitter,nombre:'twitter', url:'https://x.com/mcbrokersmx'},
     ];
-    const socialMedia=(name)=>{
-        switch(name.toLowerCase()){
-            case 'linkedin':
-                return Linkedin;
-            case 'facebook':
-                return Facebook;
-            case 'twitter':
-                return Twitter;
-        }
-    }
+    
     return(
         <section className={`mcb-flex mcb-ai-c mcb-jc-c ${styles.mcb_article_author}`}>
             <div>
@@ -37,9 +30,9 @@ const Author=({
                         <p className='mcb-fs-20'>Visita las redes sociales de MCBrokers</p>
                         
                         <div className={`mcb-flex mcb-gap-20 ${styles.mq_jc}`}>
-                            {mcbSocialMedia.map((red)=>(
-                                <a href={red.url} key={red.nombre} title={red.nombre} target='_blank'>
-                                    <img src={socialMedia(red.nombre)} className={styles.mcb_author_sm} alt={red.nombre} />
+                            {mcbSocialMedia.map((i)=>(
+                                <a href={i.url} key={i.nombre} title={i.nombre} target='_blank'>
+                                    <img src={i.icon} className={styles.mcb_author_sm} alt={i.nombre} />
                                 </a>
                             ))}
                         </div>

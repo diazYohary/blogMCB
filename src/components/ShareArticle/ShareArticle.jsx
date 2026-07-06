@@ -2,13 +2,11 @@ import { useState, useEffect } from "react"
 import useIsMobileDevice from '@/utils/isMobileDevice';
 import { 
     FacebookShareButton, 
-    TwitterShareButton, 
     WhatsappShareButton, 
     LinkedinShareButton
 } from "react-share"
 
 import LinkedinIcon from '../../assets/img/SocialMedia/linkedin.svg'
-import TwitterIcon from '../../assets/img/SocialMedia/xlogo.svg'
 import FacebookIcon from '../../assets/img/SocialMedia/facebook.svg'
 import WhatsappIcon from '../../assets/img/SocialMedia/whatsapp.svg'
 import styles from './ShareArticle.module.scss'
@@ -21,7 +19,7 @@ const ShareIcon = () => (
     </svg>
 )
 
-const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
+const ShareArticle = ({ url = window.location.href, title='Compartir'}) => {
     const [canNativeShare, setCanNativeShare] = useState(false);
     const isMobile=useIsMobileDevice();
 
@@ -55,7 +53,7 @@ const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
             <div className="mcb-flex mcb-gap-10">
                 <LinkedinShareButton url={url} quote={title}>
                     <img className={styles.mcb_share_btn} src={LinkedinIcon} alt="Linkedin" />
-                </LinkedinShareButton>
+                </LinkedinShareButton>            
 
                 <FacebookShareButton url={url} quote={title}>
                     <img className={styles.mcb_share_btn} src={FacebookIcon} alt="Facebook" />
@@ -64,10 +62,6 @@ const ShareArticle = ({ url = window.location.href, title='MIra'}) => {
                 <WhatsappShareButton url={url} title={title}>
                     <img className={styles.mcb_share_btn} src={WhatsappIcon} alt="Whatsapp" />
                 </WhatsappShareButton>
-                
-                <TwitterShareButton url={url} title={title}>
-                    <img className={styles.mcb_share_btn} src={TwitterIcon} alt="Twitter" />
-                </TwitterShareButton>
             </div>
         </div>
     );
